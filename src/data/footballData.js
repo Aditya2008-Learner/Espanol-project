@@ -97,7 +97,7 @@ export const clubsData = [
     history: "The proud working-class heartbeat of Madrid. Under Diego Simeone, Los Colchoneros forged one of Europe's most feared defensive units and competitive cultures.",
     legendaryPlayers: ["Luis Aragonés", "Fernando Torres", "Antoine Griezmann", "Diego Godín", "Jan Oblak"],
     trophies: "11 La Liga, 10 Copa del Rey, 3 UEFA Europa League",
-    image: "/assets/images/user-stadium-1.webp",
+    image: "/assets/images/atletico-stadium.webp",
     bgAccent: "from-red-900/40 to-zinc-950/80"
   },
   {
@@ -111,7 +111,7 @@ export const clubsData = [
     history: "One of only three clubs never relegated from La Liga. San Mamés is revered as football's purest cathedral, where tradition supersedes commercialism.",
     legendaryPlayers: ["Telmo Zarra", "Joseba Etxeberria", "Iker Muniain", "Aritz Aduriz", "Iñaki Williams"],
     trophies: "8 La Liga, 24 Copa del Rey",
-    image: "/assets/images/user-match-1.webp",
+    image: "/assets/images/football-crowd.webp",
     bgAccent: "from-red-950/40 to-amber-950/80"
   },
   {
@@ -153,7 +153,7 @@ export const legendsData = [
     style: "Incomparable balance, immaculate close control, and scorer of the 2010 World Cup winning goal.",
     quote: "The ball is a magical object. It knows where you want it to go before your foot touches it.",
     moment: "Scoring the 116th-minute winner in Johannesburg against the Netherlands.",
-    image: "/assets/images/user-legend-1.webp"
+    image: "/assets/images/spanish-football-legends.webp"
   },
   {
     name: "Xavi Hernández",
@@ -163,7 +163,7 @@ export const legendsData = [
     style: "The ultimate metronome of tiki-taka, dictating tempo, angles, and spatial dominance.",
     quote: "Largo, corto, pausa, aceleración. Football is played with the brain first.",
     moment: "Controlling the entire midfield tempo during Spain's 4-0 Euro 2012 final masterclass.",
-    image: "/assets/images/user-legend-2.webp"
+    image: "/assets/images/tiki-taka-tactics.webp"
   },
   {
     name: "Iker Casillas",
@@ -233,7 +233,7 @@ export const legendsData = [
     style: "Master of one-touch passing, positional interception, and escaping opposition pressing effortlessly.",
     quote: "You watch the game, you don't see Busquets. You watch Busquets, you see the game.",
     moment: "Assisting Lionel Messi with a sublime turn and pass against Real Madrid at the Bernabéu.",
-    image: "/assets/images/user-stadium-1.webp"
+    image: "/assets/images/atletico-stadium.webp"
   },
   {
     name: "Lamine Yamal",
