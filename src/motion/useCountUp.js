@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useReducedMotion } from './useReducedMotion';
@@ -9,9 +9,11 @@ export function useCountUp(value, { suffix = '', duration = 1.4 } = {}) {
   const ref = useRef(null);
   const reduced = useReducedMotion();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
-    if (!el) return undefined;
+    const scroller = document.querySelector('main');
+    if (!el || !scroller) return undefined;
+
     const numeric = Number(value);
     if (Number.isNaN(numeric)) {
       el.textContent = String(value);
@@ -23,17 +25,21 @@ export function useCountUp(value, { suffix = '', duration = 1.4 } = {}) {
     }
 
     const state = { n: 0 };
-    const tween = gsap.to(state, {
-      n: numeric,
-      duration,
-      ease: 'power2.out',
-      scrollTrigger: { trigger: el, scroller: document.querySelector('main'), start: 'top 85%', once: true },
-      onUpdate: () => {
-        el.textContent = `${Math.round(state.n)}${suffix}`;
-      },
-    });
+    const ctx = gsap.context(() => {
+      gsap.to(state, {
+        n: numeric,
+        duration,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, scroller, start: 'top 85%', once: true },
+        onUpdate: () => {
+          if (el) {
+            el.textContent = `${Math.round(state.n)}${suffix}`;
+          }
+        },
+      });
+    }, el);
 
-    return () => tween.kill();
+    return () => ctx.revert();
   }, [value, suffix, duration, reduced]);
 
   return ref;

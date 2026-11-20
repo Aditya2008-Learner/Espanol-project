@@ -10,27 +10,36 @@ export const ProgressBar = () => {
   useLayoutEffect(() => {
     const el = progressRef.current;
     const scrollerEl = document.querySelector('main');
-    if (!el || !scrollerEl) return undefined;
 
-    const tween = gsap.to(el, {
-      width: '100%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: scrollerEl,
-        scroller: scrollerEl,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
-      },
+    console.log('[ProgressBar] Init:', {
+      targetEl: el,
+      targetConnected: el?.isConnected,
+      scrollerEl,
+      scrollerConnected: scrollerEl?.isConnected,
     });
 
-    return () => {
-      tween.kill();
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.scroller === scrollerEl && st.vars.trigger === scrollerEl) {
-          st.kill();
-        }
+    if (!el || !scrollerEl) {
+      console.warn('[ProgressBar] Missing target or scroller element.');
+      return undefined;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.to(el, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: scrollerEl,
+          scroller: scrollerEl,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+        },
       });
+    }, el);
+
+    return () => {
+      console.log('[ProgressBar] Cleanup');
+      ctx.revert();
     };
   }, []);
 

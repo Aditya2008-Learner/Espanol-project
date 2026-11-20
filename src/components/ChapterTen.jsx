@@ -12,30 +12,54 @@ export const ChapterTen = () => {
   useLayoutEffect(() => {
     const root = sectionRef.current;
     const scrollerEl = document.querySelector('main');
+
+    console.log('[ChapterTen] Init:', {
+      root,
+      rootConnected: root?.isConnected,
+      scrollerEl,
+      scrollerConnected: scrollerEl?.isConnected,
+      reducedMotion: reduced,
+    });
+
     if (!root || reduced || !scrollerEl) return undefined;
 
+    const lines = root.querySelectorAll('.finale-line');
+    const sweeps = root.querySelectorAll('.finale-sweep');
+
+    console.log('[ChapterTen] Targets found:', {
+      linesCount: lines.length,
+      sweepsCount: sweeps.length,
+    });
+
     const ctx = gsap.context(() => {
-      gsap.from(root.querySelectorAll('.finale-line'), {
-        scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 75%' },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.22,
-        ease: 'power4.out',
-      });
-      gsap.fromTo(
-        root.querySelectorAll('.finale-sweep'),
-        { xPercent: -120 },
-        {
-          xPercent: 120,
-          duration: 1.4,
-          ease: 'power2.inOut',
-          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 70%' },
-        }
-      );
+      if (lines.length > 0) {
+        gsap.from(lines, {
+          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 75%' },
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.22,
+          ease: 'power4.out',
+        });
+      }
+      if (sweeps.length > 0) {
+        gsap.fromTo(
+          sweeps,
+          { xPercent: -120 },
+          {
+            xPercent: 120,
+            duration: 1.4,
+            ease: 'power2.inOut',
+            scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 70%' },
+          }
+        );
+      }
     }, root);
 
-    return () => ctx.revert();
+    return () => {
+      console.log('[ChapterTen] Cleanup');
+      ctx.revert();
+    };
   }, [reduced]);
 
   return (
