@@ -81,13 +81,14 @@ export const ChapterOne = () => {
     <div ref={heroRef} className="relative h-screen w-full overflow-hidden bg-black bg-noise">
       <div className="stadium-plate absolute inset-0">
         <img
-          src="/assets/images/hero-stadium.webp"
-          alt="Floodlit football stadium"
+          src="/assets/images/spain-world-cup-2010.webp"
+          alt="Spain national football team celebrating 2010 World Cup victory"
           fetchPriority="high"
-          className="h-full w-full object-cover opacity-50"
+          className="h-full w-full object-cover object-center opacity-60 scale-105"
           onError={(event) => { event.currentTarget.style.display = 'none'; }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050203] via-[#190A10]/70 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/60 to-black/80" />
+        <div className="absolute inset-0 bg-radial from-transparent via-maroon/40 to-black/90 pointer-events-none" />
       </div>
 
       <div className="floodlight pointer-events-none absolute -left-16 top-10 h-72 w-40 rotate-12 bg-gold/20 blur-3xl" />
