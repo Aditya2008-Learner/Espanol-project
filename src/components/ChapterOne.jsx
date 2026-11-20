@@ -81,7 +81,7 @@ export const ChapterOne = () => {
     <div ref={heroRef} className="relative h-screen w-full overflow-hidden bg-black bg-noise">
       <div className="stadium-plate absolute inset-0">
         <img
-          src="/assets/images/spain-world-cup-2010.webp"
+          src="/assets/images/spain-world-cup-2010.webp?v=2010"
           alt="Spain national football team celebrating 2010 World Cup victory"
           fetchPriority="high"
           className="h-full w-full object-cover object-center opacity-60 scale-105"
