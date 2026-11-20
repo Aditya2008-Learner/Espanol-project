@@ -118,7 +118,7 @@ export const ChapterSeven = () => {
                   src={active.image}
                   alt={active.name}
                   loading="lazy"
-                  className="h-full w-full object-cover opacity-70 transition-opacity duration-700"
+                  className="h-full w-full object-cover object-top opacity-70 transition-opacity duration-700"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/50 to-transparent" />

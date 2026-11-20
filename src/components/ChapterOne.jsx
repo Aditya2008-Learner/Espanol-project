@@ -83,6 +83,7 @@ export const ChapterOne = () => {
         <img
           src="/assets/images/hero-stadium.webp"
           alt="Floodlit football stadium"
+          fetchPriority="high"
           className="h-full w-full object-cover opacity-50"
           onError={(event) => { event.currentTarget.style.display = 'none'; }}
         />
