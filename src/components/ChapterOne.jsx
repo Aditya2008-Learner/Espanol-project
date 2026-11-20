@@ -81,10 +81,10 @@ export const ChapterOne = () => {
     <div ref={heroRef} className="relative h-screen w-full overflow-hidden bg-black bg-noise">
       <div className="stadium-plate absolute inset-0">
         <img
-          src="/assets/images/spain-world-cup-2010.webp?v=2010"
-          alt="Spain national football team celebrating 2010 World Cup victory"
+          src="/assets/images/spain-2010-team-trophy.jpg"
+          alt="Spain national football team celebrating 2010 World Cup victory with trophy"
           fetchPriority="high"
-          className="h-full w-full object-cover object-center opacity-60 scale-105"
+          className="h-full w-full object-cover object-center opacity-65 scale-105"
           onError={(event) => { event.currentTarget.style.display = 'none'; }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/60 to-black/80" />
