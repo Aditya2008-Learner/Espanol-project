@@ -12,7 +12,6 @@ export const ChapterThree = () => {
   const [activeClub, setActiveClub] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const sectionRef = useRef(null);
-  const trackRef = useRef(null);
   const reduced = useReducedMotion();
 
   const activeClubData = clubsData[activeClub];
@@ -23,7 +22,6 @@ export const ChapterThree = () => {
     const scrollerEl = document.querySelector('main');
     if (!root || !scrollerEl) return undefined;
 
-    // Fail-safe: ensure cards and labels are never stuck at opacity 0
     gsap.set(root.querySelectorAll('.ch3-label, .ch3-title, .ch3-card, .ch3-nav'), {
       opacity: 1,
       y: 0,
@@ -72,7 +70,6 @@ export const ChapterThree = () => {
     return () => ctx.revert();
   }, [reduced]);
 
-  // Modal open & close with proper scroller locking
   const handleOpenModal = (index) => {
     setActiveClub(index);
     setIsOpen(true);
@@ -86,7 +83,7 @@ export const ChapterThree = () => {
     if (scroller) scroller.style.overflow = 'auto';
   };
 
-  // Keyboard navigation (Escape to close modal, Left/Right arrows for carousel)
+  // Keyboard navigation & Touch Swipe support
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (isOpen) {
@@ -103,10 +100,24 @@ export const ChapterThree = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  // Calculate centered translation for active card
-  // Card width = 280px + 28px gap = 308px step
-  const cardStep = 308;
-  const trackOffset = `calc(50% - ${activeClub * cardStep + 140}px)`;
+  // Touch swipe handlers
+  const touchStartRef = useRef(0);
+  const handleTouchStart = (e) => {
+    touchStartRef.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e) => {
+    const diff = e.changedTouches[0].clientX - touchStartRef.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setActiveClub((prev) => (prev === 0 ? clubsData.length - 1 : prev - 1));
+      } else {
+        setActiveClub((prev) => (prev === clubsData.length - 1 ? 0 : prev + 1));
+      }
+    }
+  };
+
+  const cardStep = 320; // card width (300px) + gap (20px)
+  const trackOffset = `calc(50% - ${activeClub * cardStep + 150}px)`;
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-maroon bg-noise flex flex-col justify-between py-16 overflow-hidden">
@@ -128,13 +139,16 @@ export const ChapterThree = () => {
         </p>
       </div>
 
-      {/* Main Interactive Carousel Viewport */}
-      <div className="relative z-10 w-full my-auto py-6">
+      {/* Main Interactive Carousel Viewport with Touch Support */}
+      <div 
+        className="relative z-10 w-full my-auto py-6"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="relative w-full overflow-hidden px-4">
           {/* Sliding Track */}
           <div
-            ref={trackRef}
-            className="flex items-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] py-6"
+            className="flex items-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] py-8"
             style={{
               transform: `translateX(${trackOffset})`,
               width: `${clubsData.length * cardStep + 600}px`
@@ -152,57 +166,57 @@ export const ChapterThree = () => {
                       setActiveClub(index);
                     }
                   }}
-                  className={`ch3-card cursor-pointer transition-all duration-500 mr-7 flex-shrink-0 select-none ${
+                  className={`ch3-card cursor-pointer transition-all duration-500 mr-5 flex-shrink-0 select-none group ${
                     isActive
-                      ? 'scale-105 z-20 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(213,170,97,0.35)] ring-2 ring-gold'
-                      : 'scale-95 opacity-55 hover:opacity-85 hover:scale-100'
+                      ? 'scale-105 z-20 shadow-[0_24px_55px_rgba(0,0,0,0.85),0_0_40px_rgba(213,170,97,0.4)] ring-2 ring-gold'
+                      : 'scale-95 opacity-50 hover:opacity-85 hover:scale-98'
                   }`}
-                  style={{ width: '280px' }}
+                  style={{ width: '300px' }}
                 >
-                  <div className="relative h-[410px] rounded-sm overflow-hidden border border-gold/25 bg-burgundy flex flex-col justify-end group">
-                    {/* Stadium Image */}
+                  <div className="relative h-[430px] rounded-sm overflow-hidden border border-gold/30 bg-burgundy flex flex-col justify-end">
+                    {/* Stadium Image with Cinematic Vignette */}
                     <div className="absolute inset-0 z-0 overflow-hidden">
                       <img
                         src={club.image}
                         alt={`${club.name} - ${club.stadium}`}
                         loading="lazy"
-                        className={`w-full h-full object-cover transition-transform duration-700 ${
-                          isActive ? 'scale-105' : 'group-hover:scale-105 grayscale-[30%]'
+                        className={`w-full h-full object-cover object-center transition-transform duration-1000 ${
+                          isActive ? 'scale-105' : 'group-hover:scale-105 grayscale-[20%]'
                         }`}
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/60 to-transparent" />
-                      <div className={`absolute inset-0 bg-gradient-to-b ${club.bgAccent} opacity-50 mix-blend-overlay`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80" />
                     </div>
 
-                    {/* Card Content */}
-                    <div className="relative z-10 p-5 flex flex-col justify-end text-ivory">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-gold/90 px-2 py-0.5 rounded bg-black/40 backdrop-blur-sm border border-gold/20">
+                    {/* Card Content with Refined Typography */}
+                    <div className="relative z-10 p-6 flex flex-col justify-end text-ivory">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-gold px-2.5 py-1 rounded bg-maroon/80 border border-gold/30 backdrop-blur-sm">
                           {club.city}
                         </span>
-                        <div className="flex items-center space-x-1.5 font-mono text-[11px] text-ivory/60">
+                        <div className="flex items-center space-x-1.5 font-mono text-[11px] text-ivory/70">
                           <Calendar className="w-3.5 h-3.5 text-gold/80" />
                           <span>{club.founded}</span>
                         </div>
                       </div>
 
-                      <h3 className="font-display text-2xl tracking-wide leading-tight text-ivory mb-1">
+                      <h3 className="font-display text-2xl tracking-wide leading-tight text-ivory mb-2 group-hover:text-gold transition-colors">
                         {club.name}
                       </h3>
 
-                      <p className="text-xs text-ivory/70 line-clamp-2 font-serif italic mb-3">
+                      <p className="text-xs text-ivory/75 line-clamp-2 font-serif italic mb-4 leading-relaxed">
                         {club.identity}
                       </p>
 
-                      <div className="pt-2 border-t border-ivory/15 flex items-center justify-between text-xs font-mono">
-                        <span className="text-gold flex items-center gap-1">
-                          <Trophy className="w-3.5 h-3.5" />
-                          <span>{isActive ? 'Click to Explore' : 'Focus Club'}</span>
+                      <div className="pt-3 border-t border-ivory/20 flex items-center justify-between text-xs font-mono">
+                        <span className="text-gold flex items-center gap-1.5 font-semibold">
+                          <Trophy className="w-3.5 h-3.5 text-gold" />
+                          <span>{isActive ? 'Click to Open Dossier' : 'Select Club'}</span>
                         </span>
-                        <ArrowRight className={`w-3.5 h-3.5 text-gold transition-transform ${isActive ? 'translate-x-1' : ''}`} />
+                        <ArrowRight className={`w-4 h-4 text-gold transition-transform duration-300 ${isActive ? 'translate-x-1.5' : ''}`} />
                       </div>
                     </div>
                   </div>
@@ -213,28 +227,28 @@ export const ChapterThree = () => {
         </div>
 
         {/* Floating Navigation Controls */}
-        <div className="ch3-nav max-w-5xl mx-auto px-6 flex items-center justify-between mt-4">
+        <div className="ch3-nav max-w-5xl mx-auto px-6 flex items-center justify-between mt-2">
           <button
             type="button"
             aria-label="Previous club"
             onClick={() => setActiveClub((prev) => (prev === 0 ? clubsData.length - 1 : prev - 1))}
-            className="w-11 h-11 rounded-full bg-maroon/90 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95"
+            className="w-12 h-12 rounded-full bg-maroon/95 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
           {/* Active Club Indicator Pills */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2.5">
             {clubsData.map((club, index) => (
               <button
                 key={club.id}
                 type="button"
                 aria-label={`Select ${club.name}`}
                 onClick={() => setActiveClub(index)}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-all duration-500 rounded-full ${
                   index === activeClub
-                    ? 'w-8 h-2.5 bg-gradient-to-r from-crimson to-gold shadow-[0_0_12px_rgba(213,170,97,0.7)]'
-                    : 'w-2.5 h-2.5 bg-burgundy/60 hover:bg-gold/50'
+                    ? 'w-10 h-3 bg-gradient-to-r from-crimson to-gold shadow-[0_0_16px_rgba(213,170,97,0.8)] scale-110'
+                    : 'w-3 h-3 bg-burgundy/70 hover:bg-gold/60'
                 }`}
               />
             ))}
@@ -244,17 +258,17 @@ export const ChapterThree = () => {
             type="button"
             aria-label="Next club"
             onClick={() => setActiveClub((prev) => (prev === clubsData.length - 1 ? 0 : prev + 1))}
-            className="w-11 h-11 rounded-full bg-maroon/90 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95"
+            className="w-12 h-12 rounded-full bg-maroon/95 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-6 h-6" />
           </button>
         </div>
       </div>
 
       {/* Footer Info Strip */}
       <div className="relative z-10 px-6 max-w-4xl mx-auto text-center pb-2">
-        <p className="font-mono text-xs uppercase tracking-widest text-gold/70">
-          Showing <span className="text-ivory font-bold">{activeClub + 1}</span> of {clubsData.length}:{' '}
+        <p className="font-mono text-xs uppercase tracking-widest text-gold/80">
+          Club <span className="text-ivory font-bold">{activeClub + 1}</span> of {clubsData.length}:{' '}
           <span className="text-gold font-bold">{activeClubData.name}</span> — {activeClubData.stadium}
         </p>
       </div>
@@ -286,7 +300,7 @@ export const ChapterThree = () => {
               <img
                 src={activeClubData.image}
                 alt={activeClubData.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                 }}
