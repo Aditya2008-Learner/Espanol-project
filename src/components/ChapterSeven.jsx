@@ -9,18 +9,18 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Individual focal points & zoom adjustments (using object-fit & object-position / transform scale for zoomed-out feel)
+// Individual config: Torres, Raúl, Busquets use object-contain so the full image fits without cropping
 const LEGEND_CONFIG = {
-  "Andrés Iniesta": { position: "center 22%", scale: "scale-100" },
-  "Xavi Hernández": { position: "center 25%", scale: "scale-100" },
-  "Iker Casillas": { position: "center 20%", scale: "scale-100" },
-  "Sergio Ramos": { position: "center 20%", scale: "scale-100" },
-  "Carles Puyol": { position: "center 22%", scale: "scale-100" },
-  "David Villa": { position: "center 25%", scale: "scale-100" },
-  "Fernando Torres": { position: "center 30%", scale: "scale-90" },  // Zoomed out to show more body/surroundings
-  "Raúl González": { position: "center 28%", scale: "scale-90" },    // Zoomed out to show more body/surroundings
-  "Sergio Busquets": { position: "center 32%", scale: "scale-90" }, // Zoomed out to show more body/surroundings
-  "Lamine Yamal": { position: "center 20%", scale: "scale-100" }
+  "Andrés Iniesta": { position: "center 22%", fit: "object-cover" },
+  "Xavi Hernández": { position: "center 25%", fit: "object-cover" },
+  "Iker Casillas": { position: "center 20%", fit: "object-cover" },
+  "Sergio Ramos": { position: "center 20%", fit: "object-cover" },
+  "Carles Puyol": { position: "center 22%", fit: "object-cover" },
+  "David Villa": { position: "center 25%", fit: "object-cover" },
+  "Fernando Torres": { position: "center center", fit: "object-contain" },  // Fits complete image without cropping
+  "Raúl González": { position: "center center", fit: "object-contain" },    // Fits complete image without cropping
+  "Sergio Busquets": { position: "center center", fit: "object-contain" }, // Fits complete image without cropping
+  "Lamine Yamal": { position: "center 20%", fit: "object-cover" }
 };
 
 export const ChapterSeven = () => {
@@ -48,7 +48,7 @@ export const ChapterSeven = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const config = LEGEND_CONFIG[active.name] || { position: 'center 20%', scale: 'scale-100' };
+  const config = LEGEND_CONFIG[active.name] || { position: 'center 20%', fit: 'object-cover' };
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-[#190A10] bg-noise py-24">
@@ -98,13 +98,13 @@ export const ChapterSeven = () => {
           {/* Right — detailed profile */}
           <div className="leg-panel lg:col-span-8">
             <div className="relative overflow-hidden border border-[#350D19] bg-[#350D19]/30 rounded-sm shadow-2xl">
-              {/* Image with individual focal point and targeted scale for Torres, Raúl, Busquets */}
-              <div className="relative aspect-[16/8] w-full overflow-hidden bg-[#350D19] flex items-center justify-center">
+              {/* Image with object-contain for Torres, Raúl, Busquets */}
+              <div className="relative aspect-[16/8] w-full overflow-hidden bg-[#12050b] flex items-center justify-center">
                 <img
                   src={active.image}
                   alt={active.name}
                   loading="lazy"
-                  className={`h-full w-full object-cover opacity-90 transition-all duration-700 hover:scale-105 ${config.scale}`}
+                  className={`h-full w-full ${config.fit} opacity-90 transition-all duration-700 hover:scale-105`}
                   style={{ objectPosition: config.position }}
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
