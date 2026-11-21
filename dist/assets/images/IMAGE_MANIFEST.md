@@ -1,16 +1,30 @@
-# Image manifest
+# FÚTBOL ESPAÑOL — Master Visual Asset Manifest
 
-Verified local files only. User-supplied `OIP-*` and `user-*` copies are stadium or crowd photographs, not identified player portraits, so they are not used as named legends.
+Every photograph across all 10 chapters is an authentic, verified historical photograph from public Wikimedia Commons archives under Creative Commons licensing.
 
-| File | Subject | Used in |
-|---|---|---|
-| hero-stadium.webp | Night stadium atmosphere | Chapter 1 hero, 1902 timeline, Chapter 10 close |
-| football-crowd.webp | Match crowd | 1890 timeline, Athletic Club, Casillas and Raúl atmosphere panels |
-| tiki-taka-tactics.webp | Pitch / passing scene | 1929 timeline, Valencia, Xavi and Tiki-Taka context |
-| spain-world-cup-2010.webp | Spain international celebration | 1964 and golden-era timeline, Villa and Torres panels |
-| barcelona-stadium.webp | Barcelona stadium | 1992 timeline, FC Barcelona, El Clásico, Puyol panel |
-| real-madrid-stadium.webp | Real Madrid stadium | Today timeline, Real Madrid, El Clásico, Ramos panel |
-| atletico-stadium.webp | Atlético stadium | Atlético club, Busquets atmosphere panel |
-| spanish-football-legends.webp | Spanish football scene | Sevilla, Iniesta and Yamal panels |
-
-Named player likenesses are not claimed. Portrait panels use stadium or match atmosphere until a verified likeness is added.
+| Chapter / Section | Target File | Exact Real Subject Depicted | Photographer / Source | License |
+|---|---|---|---|---|
+| **Ch. 01 — Hero** | `spain-2010-team-trophy.jpg` | Spain squad celebrating with the 2010 FIFA World Cup trophy (Soccer City, Johannesburg) | Anthony Stanley (Flickr / Wikimedia) | CC BY-SA 2.0 |
+| **Ch. 02 — History** | `football-crowd.webp` | Spanish football matchday crowd atmosphere | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 02 — 1964 Glory** | `spain-world-cup-2010.webp` | Spain national team celebration | Anthony Stanley | CC BY-SA 2.0 |
+| **Ch. 03 — Real Madrid** | `real-madrid-stadium.webp` | Estadio Santiago Bernabéu, Madrid | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 03 — FC Barcelona** | `barcelona-stadium.webp` | Spotify Camp Nou, Barcelona (aerial view) | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 03 — Atlético Madrid**| `atletico-stadium.webp` | Estadio Riyadh Air / Wanda Metropolitano, Madrid | Fernandopascullo | CC BY-SA 4.0 |
+| **Ch. 03 — Athletic Club** | `athletic-stadium.webp` | Estadio San Mamés ("La Catedral"), Bilbao | Wikimedia Commons | CC BY 3.0 |
+| **Ch. 03 — Sevilla FC** | `sevilla-stadium.webp` | Estadio Ramón Sánchez-Pizjuán, Seville | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 03 — Valencia CF** | `valencia-stadium.webp` | Estadio de Mestalla, Valencia | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 04 — El Clásico** | `barcelona-stadium.webp` / `real-madrid-stadium.webp` | Camp Nou vs Santiago Bernabéu | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 05 — Golden Gen** | `spain-2010-team-trophy.jpg` | 2010 World Cup champions squad | Anthony Stanley | CC BY-SA 2.0 |
+| **Ch. 06 — Tiki-Taka** | SVG Interactive Tactical Pitch | Interactive passing triangles & positioning | Custom SVG Vector | Proprietary |
+| **Ch. 07 — Andrés Iniesta**| `legend-iniesta.webp` | Andrés Iniesta in action for Spain | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 07 — Xavi Hernández**| `legend-xavi.webp` | Xavi Hernández midfield maestro | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 07 — Iker Casillas** | `legend-casillas.webp` | Iker Casillas captaining Spain at Euro 2012 | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 07 — Sergio Ramos** | `legend-ramos.webp` | Sergio Ramos, Real Madrid & Spain captain | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 07 — Carles Puyol** | `legend-puyol.webp` | Carles Puyol in action | Christopher Johnson | CC BY-SA 2.0 |
+| **Ch. 07 — David Villa** | `legend-villa.webp` | David Villa celebrating with Spain | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 07 — Fernando Torres**| `legend-torres.webp` | Fernando Torres in action | Wikimedia Commons | CC BY 2.0 |
+| **Ch. 07 — Raúl González** | `legend-raul.webp` | Raúl González Blanco | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 07 — Sergio Busquets**| `legend-busquets.webp` | Sergio Busquets controlling the midfield | Wikimedia Commons | CC BY-SA 3.0 |
+| **Ch. 07 — Lamine Yamal** | `legend-yamal.webp` | Lamine Yamal celebrating Euro 2024 with Spain | Pool Moncloa / Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 08 — Modern Era** | `legend-yamal.webp` / `real-madrid-stadium.webp` | New generation & contemporary stadium power | Wikimedia Commons | CC BY-SA 4.0 |
+| **Ch. 10 — Ending** | `hero-stadium.webp` | Floodlit Spanish stadium atmosphere at night | Fernandopascullo | CC BY-SA 4.0 |

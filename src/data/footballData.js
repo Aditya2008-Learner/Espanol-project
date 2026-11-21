@@ -111,7 +111,7 @@ export const clubsData = [
     history: "One of only three clubs never relegated from La Liga. San Mamés is revered as football's purest cathedral, where tradition supersedes commercialism.",
     legendaryPlayers: ["Telmo Zarra", "Joseba Etxeberria", "Iker Muniain", "Aritz Aduriz", "Iñaki Williams"],
     trophies: "8 La Liga, 24 Copa del Rey",
-    image: "/assets/images/football-crowd.webp",
+    image: "/assets/images/athletic-stadium.webp",
     bgAccent: "from-red-950/40 to-amber-950/80"
   },
   {
@@ -125,7 +125,7 @@ export const clubsData = [
     history: "Sevilla holds a legendary hegemony over Europe's secondary competition with 7 titles, fueled by a fiery home atmosphere at the Ramón Sánchez Pizjuán.",
     legendaryPlayers: ["Jesús Navas", "Frederic Kanouté", "Davor Šuker", "Sergio Ramos", "Andrés Palop"],
     trophies: "1 La Liga, 5 Copa del Rey, 7 UEFA Europa League",
-    image: "/assets/images/spanish-football-legends.webp",
+    image: "/assets/images/sevilla-stadium.webp",
     bgAccent: "from-amber-950/40 to-red-950/80"
   },
   {
@@ -139,7 +139,7 @@ export const clubsData = [
     history: "Two-time Champions League finalists in the early 2000s under Héctor Cúper and Rafael Benítez, Valencia boasts a proud history of blistering counter-attacking elegance.",
     legendaryPlayers: ["Mario Kempes", "Gaizka Mendieta", "David Villa", "David Silva", "Santiago Cañizares"],
     trophies: "6 La Liga, 8 Copa del Rey, 1 UEFA Cup",
-    image: "/assets/images/tiki-taka-tactics.webp",
+    image: "/assets/images/valencia-stadium.webp",
     bgAccent: "from-orange-950/40 to-zinc-950/80"
   }
 ];
@@ -153,7 +153,7 @@ export const legendsData = [
     style: "Incomparable balance, immaculate close control, and scorer of the 2010 World Cup winning goal.",
     quote: "The ball is a magical object. It knows where you want it to go before your foot touches it.",
     moment: "Scoring the 116th-minute winner in Johannesburg against the Netherlands.",
-    image: "/assets/images/spanish-football-legends.webp"
+    image: "/assets/images/legend-iniesta.webp"
   },
   {
     name: "Xavi Hernández",
@@ -163,7 +163,7 @@ export const legendsData = [
     style: "The ultimate metronome of tiki-taka, dictating tempo, angles, and spatial dominance.",
     quote: "Largo, corto, pausa, aceleración. Football is played with the brain first.",
     moment: "Controlling the entire midfield tempo during Spain's 4-0 Euro 2012 final masterclass.",
-    image: "/assets/images/tiki-taka-tactics.webp"
+    image: "/assets/images/legend-xavi.webp"
   },
   {
     name: "Iker Casillas",
@@ -173,7 +173,7 @@ export const legendsData = [
     style: "Miraculous reflex saves, inspirational captaincy, and unmatched composure under extreme pressure.",
     quote: "A great goalkeeper transmits tranquility to the entire nation.",
     moment: "His iconic one-on-one save against Arjen Robben in the 2010 World Cup Final.",
-    image: "/assets/images/user-hero-1.webp"
+    image: "/assets/images/legend-casillas.webp"
   },
   {
     name: "Sergio Ramos",
@@ -183,7 +183,7 @@ export const legendsData = [
     style: "Unrivaled aerial dominance, warrior leadership, and clutch goalscoring in decisive finals.",
     quote: "Fear is not in our vocabulary when wearing the badge.",
     moment: "His 93rd-minute equalising header in Lisbon for Real Madrid's La Décima in 2014.",
-    image: "/assets/images/real-madrid-stadium.webp"
+    image: "/assets/images/legend-ramos.webp"
   },
   {
     name: "Carles Puyol",
@@ -193,7 +193,7 @@ export const legendsData = [
     style: "Fearless defending, fierce competitive spirit, and the emotional heartbeat of club and country.",
     quote: "You give everything on the pitch so you can look your teammates in the eye.",
     moment: "His thunderous headed semi-final goal against Germany in South Africa 2010.",
-    image: "/assets/images/barcelona-stadium.webp"
+    image: "/assets/images/legend-puyol.webp"
   },
   {
     name: "David Villa",
@@ -203,7 +203,7 @@ export const legendsData = [
     style: "Ambidextrous finishing, explosive acceleration, and clinical movement in the penalty box.",
     quote: "Scoring goals is an art form painted with instinct and split-second precision.",
     moment: "His crucial curling winner against Honduras and strikes throughout the 2010 World Cup.",
-    image: "/assets/images/spain-world-cup-2010.webp"
+    image: "/assets/images/legend-villa.webp"
   },
   {
     name: "Fernando Torres",
@@ -213,7 +213,7 @@ export const legendsData = [
     style: "Devastating pace on the counter-attack, composure in high stakes, and predatory instincts.",
     quote: "Representing Spain is the greatest honor an athlete can ever experience.",
     moment: "Scoring the winning goal in the Euro 2008 final against Germany.",
-    image: "/assets/images/user-moment-1.webp"
+    image: "/assets/images/legend-torres.webp"
   },
   {
     name: "Raúl González",
@@ -223,7 +223,7 @@ export const legendsData = [
     style: "Incomparable intelligence, deft chip finishes, and tireless off-the-ball movement.",
     quote: "El Siete de España — playing with elegance and relentless dedication.",
     moment: "His iconic 'Silencioso' celebration silencing Camp Nou after scoring in El Clásico.",
-    image: "/assets/images/user-match-1.webp"
+    image: "/assets/images/legend-raul.webp"
   },
   {
     name: "Sergio Busquets",
@@ -233,7 +233,7 @@ export const legendsData = [
     style: "Master of one-touch passing, positional interception, and escaping opposition pressing effortlessly.",
     quote: "You watch the game, you don't see Busquets. You watch Busquets, you see the game.",
     moment: "Assisting Lionel Messi with a sublime turn and pass against Real Madrid at the Bernabéu.",
-    image: "/assets/images/atletico-stadium.webp"
+    image: "/assets/images/legend-busquets.webp"
   },
   {
     name: "Lamine Yamal",
@@ -243,7 +243,7 @@ export const legendsData = [
     style: "Electrifying dribbling, fearless creativity, and precocious maturity on the global stage.",
     quote: "I just play with joy, remembering the streets where I learned to kick a ball.",
     moment: "His breathtaking curling strike into the top corner against France in the Euro 2024 semi-final.",
-    image: "/assets/images/spanish-football-legends.webp"
+    image: "/assets/images/legend-yamal.webp"
   }
 ];
 
