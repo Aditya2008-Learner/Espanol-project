@@ -1,0 +1,407 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: tests\test-chapter3.spec.js >> Chapter 3 End-to-End >> Mobile flow
+- Location: tests\test-chapter3.spec.js:88:3
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - generic [ref=f1e6] [cursor=pointer]: FS
+      - button [ref=f1e8] [cursor=pointer]
+    - generic [ref=f1e11]:
+      - link "Inicio" [ref=f1e12] [cursor=pointer]:
+        - /url: "#chapter-1"
+      - link "Raíces" [ref=f1e13] [cursor=pointer]:
+        - /url: "#chapter-2"
+      - link "Gigantes" [ref=f1e14] [cursor=pointer]:
+        - /url: "#chapter-3"
+      - link "Clásico" [ref=f1e15] [cursor=pointer]:
+        - /url: "#chapter-4"
+      - link "Generación" [ref=f1e16] [cursor=pointer]:
+        - /url: "#chapter-5"
+      - link "Tiki-Taka" [ref=f1e17] [cursor=pointer]:
+        - /url: "#chapter-6"
+      - link "Leyendas" [ref=f1e18] [cursor=pointer]:
+        - /url: "#chapter-7"
+      - link "Modernidad" [ref=f1e19] [cursor=pointer]:
+        - /url: "#chapter-8"
+      - link "Quiz" [ref=f1e20] [cursor=pointer]:
+        - /url: "#chapter-9"
+      - link "Final" [ref=f1e21] [cursor=pointer]:
+        - /url: "#chapter-10"
+  - main [ref=f1e22]:
+    - generic [ref=f1e24]:
+      - img "Spain national football team celebrating 2010 World Cup victory with trophy" [ref=f1e26]
+      - generic [ref=f1e28]:
+        - paragraph [ref=f1e29]: Capítulo 01 — El Legado
+        - heading "F Ú T B O L E S P A Ñ O L" [level=1] [ref=f1e30]:
+          - generic [ref=f1e31]:
+            - generic [ref=f1e32]: F
+            - generic [ref=f1e33]: Ú
+            - generic [ref=f1e34]: T
+            - generic [ref=f1e35]: B
+            - generic [ref=f1e36]: O
+            - generic [ref=f1e37]: L
+            - generic [ref=f1e39]: E
+            - generic [ref=f1e40]: S
+            - generic [ref=f1e41]: P
+            - generic [ref=f1e42]: A
+            - generic [ref=f1e43]: Ñ
+            - generic [ref=f1e44]: O
+            - generic [ref=f1e45]: L
+        - paragraph [ref=f1e46]: A legacy written in passion, precision, and global supremacy.
+        - link "Enter the experience" [ref=f1e47] [cursor=pointer]:
+          - /url: "#chapter-2"
+    - generic [ref=f1e51]:
+      - generic [ref=f1e53]:
+        - generic [ref=f1e54]: Capítulo 02 — Raíces
+        - heading "THE ROOTS OF SPANISH FOOTBALL" [level=2] [ref=f1e57]:
+          - generic [ref=f1e58]: THE
+          - generic [ref=f1e60]: ROOTS
+          - generic [ref=f1e62]: OF
+          - generic [ref=f1e64]: SPANISH
+          - generic [ref=f1e66]: FOOTBALL
+        - paragraph [ref=f1e68]: From English miners in Huelva to world champions — an interactive journey through history
+      - generic [ref=f1e71]:
+        - button "1890" [ref=f1e72] [cursor=pointer]
+        - button "1902" [ref=f1e76] [cursor=pointer]
+        - button "1929" [ref=f1e79] [cursor=pointer]
+        - button "1964" [ref=f1e82] [cursor=pointer]
+        - button "1992" [ref=f1e85] [cursor=pointer]
+        - button "2008 - 2012" [ref=f1e88] [cursor=pointer]
+        - button "Today" [ref=f1e91] [cursor=pointer]
+      - generic [ref=f1e96]:
+        - generic [ref=f1e98]:
+          - img "The English Seeds in Rio Tinto" [ref=f1e99]
+          - generic [ref=f1e101]:
+            - text: Origins
+            - generic [ref=f1e102]: "1890"
+        - generic [ref=f1e103]:
+          - generic [ref=f1e104]:
+            - heading "The English Seeds in Rio Tinto" [level=3] [ref=f1e105]
+            - paragraph [ref=f1e107]: Miners and engineers from Britain brought association football to the mines of Huelva and Bilbao, sparking the earliest recorded matches on Iberian soil.
+          - generic [ref=f1e108]:
+            - heading "SIGNIFICANCE" [level=4] [ref=f1e109]
+            - paragraph [ref=f1e110]: First documented football matches in Spain.
+          - generic [ref=f1e111]:
+            - button "Previous" [disabled] [ref=f1e112]
+            - generic [ref=f1e116]: 1 / 7
+            - button "Next" [ref=f1e117] [cursor=pointer]
+    - generic [ref=f1e123]:
+      - generic [ref=f1e125]:
+        - generic [ref=f1e126]: Capítulo 03 — Los Gigantes
+        - heading "THE GIANTS OF SPAIN" [level=2] [ref=f1e129]:
+          - generic [ref=f1e130]: THE
+          - generic [ref=f1e132]: GIANTS
+          - generic [ref=f1e134]: OF
+          - generic [ref=f1e136]: SPAIN
+        - paragraph [ref=f1e138]: Six monumental clubs whose distinct identities, regional cultures, and European triumphs define the soul of Spanish football.
+      - generic [ref=f1e139]:
+        - generic [ref=f1e141]:
+          - generic [ref=f1e143] [cursor=pointer]:
+            - img "Real Madrid CF - Santiago Bernabéu (81,044 capacity)" [ref=f1e145]
+            - generic [ref=f1e148]:
+              - generic [ref=f1e149]:
+                - generic [ref=f1e150]: Madrid
+                - generic [ref=f1e151]: "1902"
+              - heading "Real Madrid CF" [level=3] [ref=f1e155]
+              - paragraph [ref=f1e156]: Royalty, European dominance, relentless winning mentality, and dramatic comebacks.
+              - generic [ref=f1e157]: Click to Explore
+          - generic [ref=f1e169] [cursor=pointer]:
+            - img "FC Barcelona - Spotify Camp Nou (Under renovation / Estadi Olímpic)" [ref=f1e171]
+            - generic [ref=f1e174]:
+              - generic [ref=f1e175]:
+                - generic [ref=f1e176]: Barcelona (Catalonia)
+                - generic [ref=f1e177]: "1899"
+              - heading "FC Barcelona" [level=3] [ref=f1e181]
+              - paragraph [ref=f1e182]: "'Més que un club' (More than a club). Total football, La Masia academy, and aesthetic mastery."
+              - generic [ref=f1e183]: Focus Club
+          - generic [ref=f1e195] [cursor=pointer]:
+            - img "Atlético Madrid - Riyadh Air Metropolitano (70,460 capacity)" [ref=f1e197]
+            - generic [ref=f1e200]:
+              - generic [ref=f1e201]:
+                - generic [ref=f1e202]: Madrid
+                - generic [ref=f1e203]: "1903"
+              - heading "Atlético Madrid" [level=3] [ref=f1e207]
+              - paragraph [ref=f1e208]: Coraje y Corazón (Courage and Heart). Defensive resilience, unbreakable solidarity, and fervent passion.
+              - generic [ref=f1e209]: Focus Club
+          - generic [ref=f1e221] [cursor=pointer]:
+            - img "Athletic Club Bilbao - San Mamés (53,289 capacity - 'The Cathedral')" [ref=f1e223]
+            - generic [ref=f1e226]:
+              - generic [ref=f1e227]:
+                - generic [ref=f1e228]: Bilbao (Basque Country)
+                - generic [ref=f1e229]: "1898"
+              - heading "Athletic Club Bilbao" [level=3] [ref=f1e233]
+              - paragraph [ref=f1e234]: Leones (Lions). Playing exclusively with Basque-rooted players, embodying fierce regional pride and loyalty.
+              - generic [ref=f1e235]: Focus Club
+          - generic [ref=f1e247] [cursor=pointer]:
+            - img "Sevilla FC - Ramón Sánchez Pizjuán (43,883 capacity)" [ref=f1e249]
+            - generic [ref=f1e252]:
+              - generic [ref=f1e253]:
+                - generic [ref=f1e254]: Seville (Andalusia)
+                - generic [ref=f1e255]: "1890"
+              - heading "Sevilla FC" [level=3] [ref=f1e259]
+              - paragraph [ref=f1e260]: Castor y Pasión. The undisputed kings of the UEFA Europa League and Andalusian flair.
+              - generic [ref=f1e261]: Focus Club
+          - generic [ref=f1e273] [cursor=pointer]:
+            - img "Valencia CF - Mestalla (49,430 capacity)" [ref=f1e275]
+            - generic [ref=f1e278]:
+              - generic [ref=f1e279]:
+                - generic [ref=f1e280]: Valencia
+                - generic [ref=f1e281]: "1919"
+              - heading "Valencia CF" [level=3] [ref=f1e285]
+              - paragraph [ref=f1e286]: Che. Passionate, high-octane football with a history of dethroning giants.
+              - generic [ref=f1e287]: Focus Club
+        - generic [ref=f1e298]:
+          - button "Previous club" [ref=f1e299] [cursor=pointer]
+          - generic [ref=f1e302]:
+            - button "Select Real Madrid CF" [ref=f1e303] [cursor=pointer]
+            - button "Select FC Barcelona" [ref=f1e304] [cursor=pointer]
+            - button "Select Atlético Madrid" [ref=f1e305] [cursor=pointer]
+            - button "Select Athletic Club Bilbao" [ref=f1e306] [cursor=pointer]
+            - button "Select Sevilla FC" [ref=f1e307] [cursor=pointer]
+            - button "Select Valencia CF" [ref=f1e308] [cursor=pointer]
+          - button "Next club" [ref=f1e309] [cursor=pointer]
+      - paragraph [ref=f1e313]: "Showing 1 of 6: Real Madrid CF — Santiago Bernabéu (81,044 capacity)"
+    - generic [ref=f1e317]:
+      - generic [ref=f1e318]: Capítulo 04 — El Clásico
+      - heading "EL CLÁSICO" [level=2] [ref=f1e319]:
+        - generic [ref=f1e320]: EL
+        - generic [ref=f1e322]: CLÁSICO
+      - generic [ref=f1e324]:
+        - button "both" [ref=f1e325] [cursor=pointer]
+        - button "barcelona" [ref=f1e326] [cursor=pointer]
+        - button "madrid" [ref=f1e327] [cursor=pointer]
+      - generic [ref=f1e328]:
+        - article [ref=f1e329]:
+          - img "F.C. BARCELONA" [ref=f1e330]
+          - generic [ref=f1e332]:
+            - heading "F.C. BARCELONA" [level=3] [ref=f1e333]
+            - paragraph [ref=f1e334]: Més que un club — 1899
+            - generic [ref=f1e335]:
+              - generic [ref=f1e336]:
+                - term [ref=f1e337]: La Liga
+                - definition [ref=f1e338]: "0"
+              - generic [ref=f1e339]:
+                - term [ref=f1e340]: Champions League
+                - definition [ref=f1e341]: "0"
+              - generic [ref=f1e342]:
+                - term [ref=f1e343]: Copa del Rey
+                - definition [ref=f1e344]: "0"
+        - article [ref=f1e345]:
+          - img "REAL MADRID" [ref=f1e346]
+          - generic [ref=f1e348]:
+            - heading "REAL MADRID" [level=3] [ref=f1e349]
+            - paragraph [ref=f1e350]: Hala Madrid — 1902
+            - generic [ref=f1e351]:
+              - generic [ref=f1e352]:
+                - term [ref=f1e353]: La Liga
+                - definition [ref=f1e354]: "0"
+              - generic [ref=f1e355]:
+                - term [ref=f1e356]: Champions League
+                - definition [ref=f1e357]: "0"
+              - generic [ref=f1e358]:
+                - term [ref=f1e359]: Copa del Rey
+                - definition [ref=f1e360]: "0"
+    - generic [ref=f1e363]:
+      - generic [ref=f1e364]: Capítulo 05 — La Generación Dorada
+      - heading "THE GOLDEN GENERATION" [level=2] [ref=f1e365]:
+        - generic [ref=f1e366]: THE
+        - generic [ref=f1e368]: GOLDEN
+        - generic [ref=f1e370]: GENERATION
+      - generic [ref=f1e372]:
+        - article [ref=f1e373]:
+          - paragraph [ref=f1e374]: "2008"
+          - heading "Euro 2008" [level=3] [ref=f1e375]
+          - paragraph [ref=f1e376]: Austria and Switzerland. Fernando Torres finishes the final. Spain’s first major trophy of the era.
+        - article [ref=f1e377]:
+          - paragraph [ref=f1e378]: "2010"
+          - heading "World Cup 2010" [level=3] [ref=f1e379]
+          - paragraph [ref=f1e380]: Johannesburg. Iniesta in the 116th minute. The night Spanish football became the centre of the sport.
+        - article [ref=f1e381]:
+          - paragraph [ref=f1e382]: "2012"
+          - heading "Euro 2012" [level=3] [ref=f1e383]
+          - paragraph [ref=f1e384]: A 4–0 final in Kyiv. The only side to hold the Euros, the World Cup, and the Euros again.
+    - generic [ref=f1e387]:
+      - generic [ref=f1e388]: Capítulo 06 — La Táctica
+      - heading "THE ART OF TIKI-TAKA" [level=2] [ref=f1e389]:
+        - generic [ref=f1e390]: THE
+        - generic [ref=f1e392]: ART
+        - generic [ref=f1e394]: OF
+        - generic [ref=f1e396]: TIKI-TAKA
+      - generic [ref=f1e398]:
+        - generic [ref=f1e399]:
+          - img [ref=f1e400]:
+            - generic [ref=f1e408] [cursor=pointer]: GK
+            - generic [ref=f1e411] [cursor=pointer]: CB
+            - generic [ref=f1e414] [cursor=pointer]: FB
+            - generic [ref=f1e417] [cursor=pointer]: DM
+            - generic [ref=f1e420] [cursor=pointer]: CM
+            - generic [ref=f1e423] [cursor=pointer]: WG
+            - generic [ref=f1e426] [cursor=pointer]: ST
+          - button "Replay sequence" [ref=f1e430] [cursor=pointer]
+        - generic [ref=f1e431]:
+          - paragraph [ref=f1e432]: Possession 68%
+          - heading "The Anchor / Pivote" [level=3] [ref=f1e433]
+          - paragraph [ref=f1e434]: Metronome & Shield
+          - paragraph [ref=f1e435]: Players like Sergio Busquets or Rodri. They intercept silently, recycle possession instantly, and scan 360 degrees before receiving the ball.
+    - generic [ref=f1e438]:
+      - generic [ref=f1e439]: Capítulo 07 — Leyendas
+      - heading "LEGENDS OF THE GAME" [level=2] [ref=f1e441]
+      - paragraph [ref=f1e442]: Ten figures who defined what Spanish football looks, feels, and means.
+      - generic [ref=f1e443]:
+        - navigation [ref=f1e444]:
+          - button [ref=f1e445] [cursor=pointer]:
+            - paragraph [ref=f1e446]: Andrés Iniesta
+            - paragraph [ref=f1e447]: Central Midfielder
+          - button [ref=f1e448] [cursor=pointer]:
+            - paragraph [ref=f1e449]: Xavi Hernández
+            - paragraph [ref=f1e450]: Central Midfielder
+          - button [ref=f1e451] [cursor=pointer]:
+            - paragraph [ref=f1e452]: Iker Casillas
+            - paragraph [ref=f1e453]: Goalkeeper
+          - button [ref=f1e454] [cursor=pointer]:
+            - paragraph [ref=f1e455]: Sergio Ramos
+            - paragraph [ref=f1e456]: Centre-Back
+          - button [ref=f1e457] [cursor=pointer]:
+            - paragraph [ref=f1e458]: Carles Puyol
+            - paragraph [ref=f1e459]: Centre-Back
+          - button [ref=f1e460] [cursor=pointer]:
+            - paragraph [ref=f1e461]: David Villa
+            - paragraph [ref=f1e462]: Striker
+          - button [ref=f1e463] [cursor=pointer]:
+            - paragraph [ref=f1e464]: Fernando Torres
+            - paragraph [ref=f1e465]: Striker
+          - button [ref=f1e466] [cursor=pointer]:
+            - paragraph [ref=f1e467]: Raúl González
+            - paragraph [ref=f1e468]: Forward
+          - button [ref=f1e469] [cursor=pointer]:
+            - paragraph [ref=f1e470]: Sergio Busquets
+            - paragraph [ref=f1e471]: Defensive Midfielder
+          - button [ref=f1e472] [cursor=pointer]:
+            - paragraph [ref=f1e473]: Lamine Yamal
+            - paragraph [ref=f1e474]: Winger
+        - generic [ref=f1e476]:
+          - generic [ref=f1e477]:
+            - img "Andrés Iniesta" [ref=f1e478]
+            - generic [ref=f1e480]:
+              - paragraph [ref=f1e481]: Central Midfielder
+              - heading "Andrés Iniesta" [level=3] [ref=f1e482]
+              - paragraph [ref=f1e483]: FC Barcelona
+          - generic [ref=f1e484]:
+            - generic [ref=f1e485]:
+              - generic [ref=f1e486]:
+                - paragraph [ref=f1e487]: Major Honours
+                - paragraph [ref=f1e488]: World Cup Winner (2010), 2x Euro Winner, 4x UCL, 9x La Liga
+              - generic [ref=f1e489]:
+                - paragraph [ref=f1e490]: Playing Style
+                - paragraph [ref=f1e491]: Incomparable balance, immaculate close control, and scorer of the 2010 World Cup winning goal.
+            - generic [ref=f1e492]:
+              - generic [ref=f1e493]:
+                - paragraph [ref=f1e494]: Defining Moment
+                - paragraph [ref=f1e495]: Scoring the 116th-minute winner in Johannesburg against the Netherlands.
+              - generic [ref=f1e496]:
+                - paragraph [ref=f1e497]: In Their Words
+                - blockquote [ref=f1e498]: "\"The ball is a magical object. It knows where you want it to go before your foot touches it.\""
+          - generic [ref=f1e499]:
+            - button "← Previous" [disabled] [ref=f1e500]
+            - paragraph [ref=f1e501]: 1 / 10
+            - button "Next →" [ref=f1e502] [cursor=pointer]
+    - generic [ref=f1e505]:
+      - generic [ref=f1e506]: Capítulo 08 — Modernidad
+      - heading "MODERN SPANISH FOOTBALL" [level=2] [ref=f1e508]
+      - paragraph [ref=f1e509]: Modern Spanish football bridges the legendary tiki-taka foundation with high-octane verticality, blistering wing play, and elite tactical versatility.
+      - generic [ref=f1e510]:
+        - generic [ref=f1e511]:
+          - paragraph [ref=f1e512]: Euro 2024 Champions
+          - heading "The Wonderkid Generation" [level=3] [ref=f1e513]
+          - paragraph [ref=f1e514]: Lamine Yamal, Pedri, Gavi, Nico Williams, and Pau Cubarsí lead a breathtaking new wave of technically fearless prodigies conquering Europe.
+        - generic [ref=f1e515]:
+          - paragraph [ref=f1e516]: High-Press Modernity
+          - heading "Tactical Evolution" [level=3] [ref=f1e517]
+          - paragraph [ref=f1e518]: Moving beyond pure possession into explosive transitional verticality, inverted full-backs, and asymmetrical half-space overloads.
+        - generic [ref=f1e519]:
+          - paragraph [ref=f1e520]: Elite Tactical Export
+          - heading "Global Coaching Elite" [level=3] [ref=f1e521]
+          - paragraph [ref=f1e522]: Spanish managers (Pep Guardiola, Mikel Arteta, Xabi Alonso, Luis Enrique, Unai Emery) mastermind the tactical frontier across Europe's top leagues.
+        - generic [ref=f1e523]:
+          - paragraph [ref=f1e524]: Dominant Europe Record
+          - heading "La Liga Hegemony" [level=3] [ref=f1e525]
+          - paragraph [ref=f1e526]: Spanish clubs continue to set unprecedented standards in UEFA competitions, showcasing financial resilience and peerless academy development.
+      - generic [ref=f1e527]:
+        - button "New Generation" [ref=f1e528] [cursor=pointer]
+        - button "Spanish Coaches" [ref=f1e529] [cursor=pointer]
+      - generic [ref=f1e530]:
+        - generic [ref=f1e531]:
+          - generic [ref=f1e532]:
+            - generic [ref=f1e533]: "01"
+            - generic [ref=f1e534]:
+              - heading "Lamine Yamal" [level=4] [ref=f1e535]
+              - paragraph [ref=f1e536]: FC Barcelona · 17
+          - paragraph [ref=f1e537]: Euro 2024 champion and youngest-ever scorer in European Championship history. Devastating dribbler and creator.
+        - generic [ref=f1e538]:
+          - generic [ref=f1e539]:
+            - generic [ref=f1e540]: "02"
+            - generic [ref=f1e541]:
+              - heading "Pedri" [level=4] [ref=f1e542]
+              - paragraph [ref=f1e543]: FC Barcelona · 21
+          - paragraph [ref=f1e544]: Midfield metronome inheriting Iniesta's mantle. Euro 2020 Young Player of the Tournament and integral to La Roja's engine room.
+        - generic [ref=f1e545]:
+          - generic [ref=f1e546]:
+            - generic [ref=f1e547]: "03"
+            - generic [ref=f1e548]:
+              - heading "Gavi" [level=4] [ref=f1e549]
+              - paragraph [ref=f1e550]: FC Barcelona · 20
+          - paragraph [ref=f1e551]: Youngest Spanish international since 1936. Relentless pressing, fearless tackling, and extraordinary maturity for his age.
+        - generic [ref=f1e552]:
+          - generic [ref=f1e553]:
+            - generic [ref=f1e554]: "04"
+            - generic [ref=f1e555]:
+              - heading "Nico Williams" [level=4] [ref=f1e556]
+              - paragraph [ref=f1e557]: Athletic Club · 22
+          - paragraph [ref=f1e558]: Explosive left winger who terrorised defences at Euro 2024. Two-footed, rapid, and decisive in the final.
+        - generic [ref=f1e559]:
+          - generic [ref=f1e560]:
+            - generic [ref=f1e561]: "05"
+            - generic [ref=f1e562]:
+              - heading "Pau Cubarsí" [level=4] [ref=f1e563]
+              - paragraph [ref=f1e564]: FC Barcelona · 17
+          - paragraph [ref=f1e565]: Commanding centre-back who debuted in the Champions League knockout rounds as a 16-year-old, reading the game beyond his years.
+    - generic [ref=f1e568]:
+      - generic [ref=f1e569]: Capítulo 09 — El Cuestionario
+      - heading "TEST YOUR KNOWLEDGE" [level=2] [ref=f1e572]:
+        - generic [ref=f1e573]: TEST
+        - generic [ref=f1e575]: YOUR
+        - generic [ref=f1e577]: KNOWLEDGE
+      - generic [ref=f1e579]:
+        - generic [ref=f1e581]:
+          - generic [ref=f1e582]: Question 1 of 15
+          - generic [ref=f1e583]: "Score: 0"
+        - heading "Which club won the inaugural La Liga championship in 1929?" [level=3] [ref=f1e584]
+        - generic [ref=f1e585]:
+          - button "Real Madrid" [ref=f1e586] [cursor=pointer]
+          - button "Athletic Club" [ref=f1e588] [cursor=pointer]
+          - button "FC Barcelona" [ref=f1e590] [cursor=pointer]
+          - button "Real Sociedad" [ref=f1e592] [cursor=pointer]
+    - generic [ref=f1e597]:
+      - paragraph [ref=f1e598]: Capítulo 10 — El Final
+      - heading "EL FÚTBOL NO SE EXPLICA." [level=2] [ref=f1e599]
+      - heading "SE SIENTE." [level=3] [ref=f1e600]
+      - paragraph [ref=f1e601]: Spanish football is a way of seeing space, time, and courage. The lesson ends where the feeling begins.
+      - button "Restart experience" [ref=f1e602] [cursor=pointer]
+```

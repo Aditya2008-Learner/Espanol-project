@@ -26,6 +26,15 @@ export const Header = () => {
     { id: 'chapter-10', label: 'Final' },
   ];
 
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-maroon/95 backdrop-blur-md py-3 shadow-lg border-b border-gold/20' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -40,6 +49,7 @@ export const Header = () => {
             <a 
               key={chapter.id} 
               href={`#${chapter.id}`} 
+              onClick={(e) => handleNavClick(e, chapter.id)}
               className="text-xs font-mono uppercase tracking-widest text-ivory/60 hover:text-gold transition-colors relative group"
             >
               {chapter.label}
@@ -61,8 +71,8 @@ export const Header = () => {
             <a 
               key={chapter.id} 
               href={`#${chapter.id}`} 
+              onClick={(e) => handleNavClick(e, chapter.id)}
               className="text-lg font-display tracking-wider text-ivory hover:text-gold transition-colors"
-              onClick={() => setIsOpen(false)}
             >
               {chapter.label}
             </a>
