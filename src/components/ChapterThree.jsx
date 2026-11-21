@@ -11,10 +11,24 @@ gsap.registerPlugin(ScrollTrigger);
 export const ChapterThree = () => {
   const [activeClub, setActiveClub] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(1200);
   const sectionRef = useRef(null);
+  const viewportRef = useRef(null);
   const reduced = useReducedMotion();
 
   const activeClubData = clubsData[activeClub];
+
+  // Measure viewport width dynamically for precise centering calculation
+  useEffect(() => {
+    const updateWidth = () => {
+      if (viewportRef.current) {
+        setContainerWidth(viewportRef.current.clientWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
   // Fail-safe visibility & smooth GSAP reveal
   useLayoutEffect(() => {
@@ -100,7 +114,6 @@ export const ChapterThree = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  // Touch swipe handlers
   const touchStartRef = useRef(0);
   const handleTouchStart = (e) => {
     touchStartRef.current = e.touches[0].clientX;
@@ -116,8 +129,11 @@ export const ChapterThree = () => {
     }
   };
 
-  const cardStep = 320; // card width (300px) + gap (20px)
-  const trackOffset = `calc(50% - ${activeClub * cardStep + 150}px)`;
+  // Precise centering formula: translateX = (containerWidth - activeCardWidth) / 2 - (activeClub * cardStep)
+  const cardWidth = 300;
+  const cardGap = 20;
+  const cardStep = cardWidth + cardGap;
+  const exactOffset = (containerWidth - cardWidth) / 2 - (activeClub * cardStep);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-maroon bg-noise flex flex-col justify-between py-16 overflow-hidden">
@@ -141,6 +157,7 @@ export const ChapterThree = () => {
 
       {/* Main Interactive Carousel Viewport with Touch Support */}
       <div 
+        ref={viewportRef}
         className="relative z-10 w-full my-auto py-6"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -150,7 +167,7 @@ export const ChapterThree = () => {
           <div
             className="flex items-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] py-8"
             style={{
-              transform: `translateX(${trackOffset})`,
+              transform: `translateX(${exactOffset}px)`,
               width: `${clubsData.length * cardStep + 600}px`
             }}
           >
@@ -166,12 +183,12 @@ export const ChapterThree = () => {
                       setActiveClub(index);
                     }
                   }}
-                  className={`ch3-card cursor-pointer transition-all duration-500 mr-5 flex-shrink-0 select-none group ${
+                  className={`ch3-card cursor-pointer transition-all duration-500 mr-[20px] flex-shrink-0 select-none group ${
                     isActive
                       ? 'scale-105 z-20 shadow-[0_24px_55px_rgba(0,0,0,0.85),0_0_40px_rgba(213,170,97,0.4)] ring-2 ring-gold'
                       : 'scale-95 opacity-50 hover:opacity-85 hover:scale-98'
                   }`}
-                  style={{ width: '300px' }}
+                  style={{ width: `${cardWidth}px` }}
                 >
                   <div className="relative h-[430px] rounded-sm overflow-hidden border border-gold/30 bg-burgundy flex flex-col justify-end">
                     {/* Stadium Image with Cinematic Vignette */}
