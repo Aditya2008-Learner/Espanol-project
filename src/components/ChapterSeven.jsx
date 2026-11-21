@@ -1,68 +1,55 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { legendsData } from '../data/footballData';
+import { WordTitle } from './WordTitle';
+import { useChapterReveal } from '../motion/useChapterReveal';
 import { useReducedMotion } from '../motion/useReducedMotion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Individual object-position mapping per legend to guarantee optimal facial framing
+const LEGEND_FOCAL_POINTS = {
+  "Andrés Iniesta": "center 22%",
+  "Xavi Hernández": "center 25%",
+  "Iker Casillas": "center 20%",
+  "Sergio Ramos": "center 20%",
+  "Carles Puyol": "center 22%",
+  "David Villa": "center 25%",
+  "Fernando Torres": "center 22%",
+  "Raúl González": "center 20%",
+  "Sergio Busquets": "center 25%",
+  "Lamine Yamal": "center 20%"
+};
 
 export const ChapterSeven = () => {
   const sectionRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const reduced = useReducedMotion();
   const active = legendsData[activeIdx];
+  useChapterReveal(sectionRef);
 
-  /* ── ScrollTrigger reveals ── */
-  useLayoutEffect(() => {
-    const root = sectionRef.current;
-    const scrollerEl = document.querySelector('main');
-    if (!root || !scrollerEl) return undefined;
-
-    /* Always start visible in case trigger never fires */
-    gsap.set(root.querySelectorAll('.leg-label, .leg-heading, .leg-card, .leg-panel'), {
-      opacity: 1, y: 0, clearProps: 'filter',
-    });
-
-    if (reduced) return undefined;
-
-    /* Animate from hidden → visible on scroll */
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        root.querySelectorAll('.leg-label'),
-        { opacity: 0, y: 14 },
-        {
-          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
-          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 80%', once: true },
+  // Keyboard navigation for legends
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Only fire when Chapter 7 is in view or focused
+      const rect = sectionRef.current?.getBoundingClientRect();
+      if (rect && rect.top <= window.innerHeight && rect.bottom >= 0) {
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          setActiveIdx((prev) => (prev === 0 ? legendsData.length - 1 : prev - 1));
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          setActiveIdx((prev) => (prev === legendsData.length - 1 ? 0 : prev + 1));
         }
-      );
-      gsap.fromTo(
-        root.querySelectorAll('.leg-heading'),
-        { opacity: 0, y: 32 },
-        {
-          opacity: 1, y: 0, duration: 0.9, ease: 'power4.out',
-          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 78%', once: true },
-        }
-      );
-      gsap.fromTo(
-        root.querySelectorAll('.leg-card'),
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1, y: 0, duration: 0.6, stagger: 0.045, ease: 'power3.out',
-          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 72%', once: true },
-        }
-      );
-      gsap.fromTo(
-        root.querySelectorAll('.leg-panel'),
-        { opacity: 0 },
-        {
-          opacity: 1, duration: 0.7, ease: 'power2.out',
-          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 68%', once: true },
-        }
-      );
-    }, root);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-    return () => ctx.revert();
-  }, [reduced]);
+  const focalPoint = LEGEND_FOCAL_POINTS[active.name] || 'center 20%';
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-[#190A10] bg-noise py-24">
@@ -83,7 +70,7 @@ export const ChapterSeven = () => {
         <div className="mt-14 grid gap-10 lg:grid-cols-12">
 
           {/* Left — name list */}
-          <nav className="flex flex-wrap gap-2 lg:col-span-4 lg:flex-col lg:gap-0 lg:border-l lg:border-[#350D19]">
+          <nav aria-label="Football legends navigation" className="flex flex-wrap gap-2 lg:col-span-4 lg:flex-col lg:gap-0 lg:border-l lg:border-[#350D19]">
             {legendsData.map((legend, i) => (
               <button
                 key={legend.name}
@@ -111,21 +98,22 @@ export const ChapterSeven = () => {
 
           {/* Right — detailed profile */}
           <div className="leg-panel lg:col-span-8">
-            <div className="relative overflow-hidden border border-[#350D19] bg-[#350D19]/30">
-              {/* Image */}
-              <div className="relative aspect-[16/7] w-full overflow-hidden bg-[#350D19]">
+            <div className="relative overflow-hidden border border-[#350D19] bg-[#350D19]/30 rounded-sm shadow-2xl">
+              {/* Image with individual focal point */}
+              <div className="relative aspect-[16/8] w-full overflow-hidden bg-[#350D19]">
                 <img
                   src={active.image}
                   alt={active.name}
                   loading="lazy"
-                  className="h-full w-full object-cover object-top opacity-85 transition-opacity duration-700"
+                  className="h-full w-full object-cover opacity-90 transition-all duration-700 hover:scale-105"
+                  style={{ objectPosition: focalPoint }}
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 sm:p-8">
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D5AA61]">{active.role}</p>
                   <h3 className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5] py-1">{active.name}</h3>
-                  <p className="font-mono text-sm text-[#F4EFE5]/60">{active.club}</p>
+                  <p className="font-mono text-sm text-[#F4EFE5]/70">{active.club}</p>
                 </div>
               </div>
 
@@ -156,25 +144,25 @@ export const ChapterSeven = () => {
               </div>
 
               {/* Prev / Next nav */}
-              <div className="flex items-center justify-between border-t border-[#350D19] px-8 py-4">
+              <div className="flex items-center justify-between border-t border-[#350D19] px-8 py-4 bg-[#190A10]/60">
                 <button
                   type="button"
-                  disabled={activeIdx === 0}
-                  onClick={() => setActiveIdx(activeIdx - 1)}
-                  className="font-mono text-xs uppercase tracking-widest text-[#D5AA61]/70 disabled:opacity-30 hover:text-[#D5AA61] transition-colors"
+                  onClick={() => setActiveIdx((prev) => (prev === 0 ? legendsData.length - 1 : prev - 1))}
+                  className="group inline-flex items-center space-x-2 font-mono text-xs uppercase tracking-widest text-[#D5AA61]/70 hover:text-[#D5AA61] transition-colors"
                 >
-                  ← Previous
+                  <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                  <span>Previous Legend</span>
                 </button>
-                <p className="font-mono text-xs text-[#F4EFE5]/30">
+                <p className="font-mono text-xs text-[#F4EFE5]/40">
                   {activeIdx + 1} / {legendsData.length}
                 </p>
                 <button
                   type="button"
-                  disabled={activeIdx === legendsData.length - 1}
-                  onClick={() => setActiveIdx(activeIdx + 1)}
-                  className="font-mono text-xs uppercase tracking-widest text-[#D5AA61]/70 disabled:opacity-30 hover:text-[#D5AA61] transition-colors"
+                  onClick={() => setActiveIdx((prev) => (prev === legendsData.length - 1 ? 0 : prev + 1))}
+                  className="group inline-flex items-center space-x-2 font-mono text-xs uppercase tracking-widest text-[#D5AA61]/70 hover:text-[#D5AA61] transition-colors"
                 >
-                  Next →
+                  <span>Next Legend</span>
+                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
