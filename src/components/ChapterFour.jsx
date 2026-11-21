@@ -56,7 +56,9 @@ export const ChapterFour = () => {
           {Object.entries(SIDES).map(([key, side]) => (
             <article
               key={key}
-              className={`clip-reveal relative aspect-[4/5] overflow-hidden border border-ivory/10 transition-opacity duration-500 ${focus !== 'both' && focus !== key ? 'opacity-35' : 'opacity-100'}`}
+              onMouseEnter={() => setFocus(key)}
+              onMouseLeave={() => setFocus('both')}
+              className={`clip-reveal relative aspect-[4/5] overflow-hidden border border-ivory/10 transition-all duration-500 hover:scale-[1.01] hover:border-gold/50 ${focus !== 'both' && focus !== key ? 'opacity-35 grayscale-[40%]' : 'opacity-100 shadow-2xl'}`}
             >
               <img
                 src={side.image}

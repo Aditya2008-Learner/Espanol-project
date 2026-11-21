@@ -89,10 +89,10 @@ export const ChapterSeven = () => {
                 key={legend.name}
                 type="button"
                 onClick={() => setActiveIdx(i)}
-                className={`leg-card w-full text-left transition-all duration-300 lg:border-b lg:border-[#350D19] lg:py-4 lg:pl-6 ${
+                className={`leg-card w-full text-left transition-all duration-300 lg:border-b lg:border-[#350D19] lg:py-4 lg:pl-6 rounded-sm ${
                   activeIdx === i
-                    ? 'border-l-2 border-[#B51F35] bg-[#350D19]/60 pl-4 lg:pl-6'
-                    : 'pl-4 text-[#F4EFE5]/50 hover:text-[#F4EFE5]/90 lg:pl-6'
+                    ? 'border-l-2 border-[#B51F35] bg-[#350D19]/70 pl-4 lg:pl-6 shadow-md'
+                    : 'pl-4 text-[#F4EFE5]/50 hover:text-[#F4EFE5]/90 hover:bg-white/5 lg:pl-6'
                 }`}
               >
                 <p

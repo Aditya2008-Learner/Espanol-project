@@ -57,8 +57,8 @@ export const ChapterThree = () => {
                 {clubsData.map((club, index) => (
                   <div
                     key={club.id}
-                    className={`club-card reveal-block cursor-pointer transition-all duration-700 hover:-translate-y-2 ${
-                      index === activeClub ? 'scale-100' : 'opacity-40 grayscale hover:opacity-80'
+                    className={`club-card reveal-block cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_16px_36px_rgba(213,170,97,0.3)] ${
+                      index === activeClub ? 'scale-100 ring-2 ring-gold/60 shadow-2xl' : 'opacity-40 grayscale hover:opacity-90 hover:grayscale-0'
                     }`}
                     onClick={() => handleClubClick(index)}
                   >

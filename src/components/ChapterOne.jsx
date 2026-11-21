@@ -91,8 +91,9 @@ export const ChapterOne = () => {
         <div className="absolute inset-0 bg-radial from-transparent via-maroon/40 to-black/90 pointer-events-none" />
       </div>
 
-      <div className="floodlight pointer-events-none absolute -left-16 top-10 h-72 w-40 rotate-12 bg-gold/20 blur-3xl" />
-      <div className="floodlight pointer-events-none absolute -right-10 top-24 h-64 w-36 -rotate-12 bg-ivory/10 blur-3xl" />
+      <div className="floodlight pointer-events-none absolute -left-16 top-10 h-80 w-48 rotate-12 bg-gold/25 blur-3xl" />
+      <div className="floodlight pointer-events-none absolute -right-10 top-20 h-72 w-44 -rotate-12 bg-crimson/20 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,rgba(213,170,97,0.12),transparent_70%)]" />
       <div className="pointer-events-none absolute inset-0 opacity-40">
         {Array.from({ length: 18 }).map((_, index) => (
           <span

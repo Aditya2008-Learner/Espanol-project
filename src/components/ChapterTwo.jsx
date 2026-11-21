@@ -52,15 +52,15 @@ export const ChapterTwo = () => {
                 }`}
                 style={{ position: 'relative', left: `${(index / (timelineData.length - 1)) * 100}%`, transform: 'translateX(-50%) translateY(50%)' }}
               >
-                <div className={`w-4 h-4 rounded-full border-2 transition-all flex items-center justify-center ${
+                <div className={`w-5 h-5 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
                   index === activeIndex 
-                    ? 'bg-crimson border-gold shadow-[0_0_20px_rgba(213,170,97,0.6)]' 
-                    : 'bg-maroon border-burgundy hover:border-crimson hover:bg-crimson/30'
+                    ? 'bg-crimson border-gold shadow-[0_0_24px_rgba(213,170,97,0.9)] scale-125' 
+                    : 'bg-maroon border-burgundy hover:border-crimson/80 hover:scale-110'
                 }`}>
-                  {index === activeIndex && <div className="w-1.5 h-1.5 rounded-full bg-gold" />}
+                  {index === activeIndex && <div className="w-2 h-2 rounded-full bg-gold animate-ping" />}
                 </div>
-                <span className={`font-mono text-xs uppercase tracking-wider mt-2 transition-colors ${
-                  index === activeIndex ? 'text-gold font-bold' : 'text-ivory/40'
+                <span className={`font-mono text-xs uppercase tracking-wider mt-2.5 transition-all duration-300 ${
+                  index === activeIndex ? 'text-gold font-bold scale-110' : 'text-ivory/40 hover:text-ivory/70'
                 }`}>
                   {item.year}
                 </span>

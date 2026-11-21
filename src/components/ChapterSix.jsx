@@ -84,7 +84,23 @@ export const ChapterSix = () => {
               {tacticalPositions.map((position) => {
                 const active = position.id === selectedId;
                 return (
-                  <g key={position.id} className="cursor-pointer" onClick={() => setSelectedId(position.id)}>
+                  <g 
+                    key={position.id} 
+                    className="cursor-pointer transition-transform duration-300 hover:scale-125" 
+                    onClick={() => {
+                      setSelectedId(position.id);
+                      if (!playing && !reduced) {
+                        const ball = ballRef.current;
+                        if (ball) {
+                          gsap.to(ball, {
+                            attr: { cx: position.coordinates.x, cy: position.coordinates.y },
+                            duration: 0.45,
+                            ease: 'power2.out'
+                          });
+                        }
+                      }
+                    }}
+                  >
                     <circle
                       cx={position.coordinates.x}
                       cy={position.coordinates.y}
