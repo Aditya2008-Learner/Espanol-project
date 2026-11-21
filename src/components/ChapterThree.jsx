@@ -31,7 +31,7 @@ export const ChapterThree = () => {
           <span className="w-2.5 h-2.5 rounded-full bg-crimson animate-ping"></span>
           <span className="font-mono text-xs uppercase tracking-widest text-gold">Capítulo 03 — Los Gigantes</span>
         </div>
-        <WordTitle text="THE GIANTS OF SPAIN" className="mt-6 font-display text-4xl tracking-tighter text-ivory md:text-7xl" />
+        <WordTitle text="THE GIANTS OF SPAIN" className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-ivory" />
         <p className="font-serif italic text-lg text-ivory/60 mt-4 max-w-2xl section-title" style={{ opacity: 0.8 }}>
           Six legendary clubs who define the soul of Spanish football
         </p>

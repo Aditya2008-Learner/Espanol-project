@@ -37,7 +37,7 @@ export const ChapterFour = () => {
         <div className="chapter-label mb-6 inline-flex border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-gold">
           Capítulo 04 — El Clásico
         </div>
-        <WordTitle text="EL CLÁSICO" className="font-display text-6xl tracking-tighter text-ivory md:text-8xl" />
+        <WordTitle text="EL CLÁSICO" className="font-display text-5xl sm:text-7xl md:text-8xl leading-tight tracking-tight text-ivory" />
 
         <div className="mt-8 flex gap-3 font-mono text-xs uppercase tracking-widest">
           {['both', 'barcelona', 'madrid'].map((key) => (

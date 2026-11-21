@@ -31,7 +31,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center space-x-2 group cursor-pointer" onClick={() => document.querySelector('main')?.scrollTo({ top: 0, behavior: 'smooth' })}>
           <div className="w-10 h-10 bg-crimson rounded-full flex items-center justify-center font-display text-ivory text-xl font-bold group-hover:scale-110 transition-transform">FS</div>
-          <span className="font-display text-2xl tracking-tighter text-ivory hidden sm:block">FÚTBOL <span className="text-gold">ESPAÑOL</span></span>
+          <span className="font-display text-2xl tracking-tight leading-normal text-ivory hidden sm:block py-1">FÚTBOL <span className="text-gold">ESPAÑOL</span></span>
         </div>
 
         {/* Desktop Nav */}

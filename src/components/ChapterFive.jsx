@@ -18,7 +18,7 @@ export const ChapterFive = () => {
         <div className="chapter-label mb-6 inline-flex border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-gold">
           Capítulo 05 — La Generación Dorada
         </div>
-        <WordTitle text="THE GOLDEN GENERATION" className="font-display text-5xl tracking-tighter text-ivory md:text-8xl" />
+        <WordTitle text="THE GOLDEN GENERATION" className="font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory" />
         <div className="mt-12 flex snap-x gap-6 overflow-x-auto pb-6">
           {MOMENTS.map((moment) => (
             <article

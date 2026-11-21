@@ -49,7 +49,7 @@ export const ChapterNine = () => {
           <span className="w-2.5 h-2.5 rounded-full bg-crimson animate-pulse"></span>
           <span className="font-mono text-xs uppercase tracking-widest text-gold">Capítulo 09 — El Cuestionario</span>
         </div>
-        <WordTitle text="TEST YOUR KNOWLEDGE" className="mt-6 font-display text-5xl tracking-tighter text-ivory md:text-8xl" />
+        <WordTitle text="TEST YOUR KNOWLEDGE" className="mt-6 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory" />
 
         {!showResult ? (
           <div className="mt-12 bg-burgundy/40 border border-crimson/20 rounded-sm p-8 space-y-6">

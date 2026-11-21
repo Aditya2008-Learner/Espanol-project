@@ -61,7 +61,7 @@ export const ChapterSix = () => {
         <div className="chapter-label mb-6 inline-flex items-center gap-3 border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-gold">
           Capítulo 06 — La Táctica
         </div>
-        <WordTitle text="THE ART OF TIKI-TAKA" className="font-display text-5xl tracking-tighter text-ivory md:text-7xl" />
+        <WordTitle text="THE ART OF TIKI-TAKA" className="font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-ivory" />
 
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
           <div className="reveal-block relative rounded-sm border border-emerald-700/40 bg-[#163226] p-6 lg:col-span-7">

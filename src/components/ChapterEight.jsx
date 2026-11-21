@@ -80,7 +80,7 @@ export const ChapterEight = () => {
           <span className="h-2 w-2 animate-pulse rounded-full bg-[#B51F35]" />
           Capítulo 08 — Modernidad
         </div>
-        <h2 className="mod-heading font-display text-5xl tracking-tighter text-[#F4EFE5] md:text-8xl">
+        <h2 className="mod-heading font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-[#F4EFE5] py-1">
           MODERN SPANISH <span className="text-[#D5AA61]">FOOTBALL</span>
         </h2>
         <p className="mt-4 max-w-2xl font-serif text-lg italic text-[#F4EFE5]/60">

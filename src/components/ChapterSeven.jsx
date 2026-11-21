@@ -73,7 +73,7 @@ export const ChapterSeven = () => {
           <span className="h-2 w-2 animate-pulse rounded-full bg-[#B51F35]" />
           Capítulo 07 — Leyendas
         </div>
-        <h2 className="leg-heading font-display text-5xl tracking-tighter text-[#F4EFE5] md:text-8xl">
+        <h2 className="leg-heading font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-[#F4EFE5] py-1">
           LEGENDS OF <span className="text-[#D5AA61]">THE GAME</span>
         </h2>
         <p className="mt-4 max-w-xl font-serif text-lg italic text-[#F4EFE5]/60">
@@ -124,7 +124,7 @@ export const ChapterSeven = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6">
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D5AA61]">{active.role}</p>
-                  <h3 className="mt-1 font-display text-5xl text-[#F4EFE5]">{active.name}</h3>
+                  <h3 className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5] py-1">{active.name}</h3>
                   <p className="font-mono text-sm text-[#F4EFE5]/60">{active.club}</p>
                 </div>
               </div>

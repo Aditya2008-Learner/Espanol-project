@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowRight } from 'lucide-react';
 import { useReducedMotion } from '../motion/useReducedMotion';
+import { splitGraphemes } from '../utils/text';
 
 const TITLE = 'FÚTBOL ESPAÑOL';
 
@@ -115,10 +116,10 @@ export const ChapterOne = () => {
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         <p className="intro-cta mb-6 font-mono text-xs uppercase tracking-[0.35em] text-gold">Capítulo 01 — El Legado</p>
-        <h1 className="relative font-display text-6xl leading-none tracking-tight text-ivory sm:text-8xl lg:text-[8.5rem]">
-          <span className="relative inline-block overflow-hidden">
-            {TITLE.split('').map((char, index) => (
-              <span key={`${char}-${index}`} className="intro-char inline-block">
+        <h1 className="relative font-display text-5xl leading-tight tracking-tight text-ivory sm:text-7xl md:text-8xl lg:text-[8.5rem]">
+          <span className="relative inline-block overflow-hidden py-3 -my-3 px-1">
+            {splitGraphemes(TITLE).map((char, index) => (
+              <span key={`${char}-${index}`} className="intro-char inline-block py-1">
                 {char === ' ' ? '\u00A0' : char}
               </span>
             ))}

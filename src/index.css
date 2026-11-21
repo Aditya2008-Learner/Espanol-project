@@ -31,6 +31,13 @@ body {
   background-color: #190A10;
   color: #F4EFE5;
   font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -29,7 +29,7 @@ export const ChapterTwo = () => {
           <span className="w-2.5 h-2.5 rounded-full bg-crimson animate-pulse"></span>
           <span className="font-mono text-xs uppercase tracking-widest text-gold">Capítulo 02 — Raíces</span>
         </div>
-        <WordTitle text="THE ROOTS OF SPANISH FOOTBALL" className="mt-6 font-display text-4xl tracking-tighter text-ivory md:text-7xl" />
+        <WordTitle text="THE ROOTS OF SPANISH FOOTBALL" className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-ivory" />
         <p className="font-serif italic text-lg text-ivory/60 mt-4 max-w-2xl section-title" style={{ opacity: 0.8 }}>
           From English miners in Huelva to world champions — an interactive journey through history
         </p>

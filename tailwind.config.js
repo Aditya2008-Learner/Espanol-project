@@ -19,7 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        display: ['Bebas Neue', 'sans-serif'],
+        display: ['Bebas Neue', 'Anton', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
         mono: ['Space Grotesk', 'monospace'],
       },

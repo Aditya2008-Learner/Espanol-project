@@ -74,8 +74,8 @@ export const ChapterTen = () => {
       <div className="finale-sweep pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <p className="finale-line font-mono text-xs uppercase tracking-[0.35em] text-gold">Capítulo 10 — El Final</p>
-        <h2 className="finale-line mt-10 font-display text-5xl tracking-tighter text-ivory md:text-8xl">EL FÚTBOL NO SE EXPLICA.</h2>
-        <h3 className="finale-line mt-3 font-display text-5xl tracking-tighter text-gold md:text-8xl">SE SIENTE.</h3>
+        <h2 className="finale-line mt-10 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory py-1">EL FÚTBOL NO SE EXPLICA.</h2>
+        <h3 className="finale-line mt-3 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-gold py-1">SE SIENTE.</h3>
         <p className="finale-line mx-auto mt-10 max-w-2xl font-serif text-xl text-ivory/75">
           Spanish football is a way of seeing space, time, and courage. The lesson ends where the feeling begins.
         </p>
