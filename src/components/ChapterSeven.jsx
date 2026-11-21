@@ -9,18 +9,18 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Individual object-position mapping per legend to guarantee optimal facial framing
-const LEGEND_FOCAL_POINTS = {
-  "Andrés Iniesta": "center 22%",
-  "Xavi Hernández": "center 25%",
-  "Iker Casillas": "center 20%",
-  "Sergio Ramos": "center 20%",
-  "Carles Puyol": "center 22%",
-  "David Villa": "center 25%",
-  "Fernando Torres": "center 22%",
-  "Raúl González": "center 20%",
-  "Sergio Busquets": "center 25%",
-  "Lamine Yamal": "center 20%"
+// Individual focal points & zoom adjustments (using object-fit & object-position / transform scale for zoomed-out feel)
+const LEGEND_CONFIG = {
+  "Andrés Iniesta": { position: "center 22%", scale: "scale-100" },
+  "Xavi Hernández": { position: "center 25%", scale: "scale-100" },
+  "Iker Casillas": { position: "center 20%", scale: "scale-100" },
+  "Sergio Ramos": { position: "center 20%", scale: "scale-100" },
+  "Carles Puyol": { position: "center 22%", scale: "scale-100" },
+  "David Villa": { position: "center 25%", scale: "scale-100" },
+  "Fernando Torres": { position: "center 30%", scale: "scale-90" },  // Zoomed out to show more body/surroundings
+  "Raúl González": { position: "center 28%", scale: "scale-90" },    // Zoomed out to show more body/surroundings
+  "Sergio Busquets": { position: "center 32%", scale: "scale-90" }, // Zoomed out to show more body/surroundings
+  "Lamine Yamal": { position: "center 20%", scale: "scale-100" }
 };
 
 export const ChapterSeven = () => {
@@ -33,7 +33,6 @@ export const ChapterSeven = () => {
   // Keyboard navigation for legends
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Only fire when Chapter 7 is in view or focused
       const rect = sectionRef.current?.getBoundingClientRect();
       if (rect && rect.top <= window.innerHeight && rect.bottom >= 0) {
         if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
@@ -49,7 +48,7 @@ export const ChapterSeven = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const focalPoint = LEGEND_FOCAL_POINTS[active.name] || 'center 20%';
+  const config = LEGEND_CONFIG[active.name] || { position: 'center 20%', scale: 'scale-100' };
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-[#190A10] bg-noise py-24">
@@ -99,17 +98,17 @@ export const ChapterSeven = () => {
           {/* Right — detailed profile */}
           <div className="leg-panel lg:col-span-8">
             <div className="relative overflow-hidden border border-[#350D19] bg-[#350D19]/30 rounded-sm shadow-2xl">
-              {/* Image with individual focal point */}
-              <div className="relative aspect-[16/8] w-full overflow-hidden bg-[#350D19]">
+              {/* Image with individual focal point and targeted scale for Torres, Raúl, Busquets */}
+              <div className="relative aspect-[16/8] w-full overflow-hidden bg-[#350D19] flex items-center justify-center">
                 <img
                   src={active.image}
                   alt={active.name}
                   loading="lazy"
-                  className="h-full w-full object-cover opacity-90 transition-all duration-700 hover:scale-105"
-                  style={{ objectPosition: focalPoint }}
+                  className={`h-full w-full object-cover opacity-90 transition-all duration-700 hover:scale-105 ${config.scale}`}
+                  style={{ objectPosition: config.position }}
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 p-6 sm:p-8">
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D5AA61]">{active.role}</p>
                   <h3 className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5] py-1">{active.name}</h3>
