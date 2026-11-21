@@ -83,12 +83,11 @@ export const ChapterOne = () => {
         <img
           src="/assets/images/spain-2010-team-trophy.jpg"
           alt="Spain national football team celebrating 2010 World Cup victory with trophy"
-          fetchPriority="high"
-          className="h-full w-full object-cover object-center opacity-65 scale-105"
+          fetchpriority="high"
+          className="h-full w-full object-cover object-center opacity-85 scale-100"
           onError={(event) => { event.currentTarget.style.display = 'none'; }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/60 to-black/80" />
-        <div className="absolute inset-0 bg-radial from-transparent via-maroon/40 to-black/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-black/50" />
       </div>
 
       <div className="floodlight pointer-events-none absolute -left-16 top-10 h-80 w-48 rotate-12 bg-gold/25 blur-3xl" />
