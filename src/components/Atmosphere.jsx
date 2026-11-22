@@ -28,7 +28,6 @@ const DEFAULT_LIGHT = { gold: 0.12, crimson: 0.10 };
 export function Atmosphere() {
   const [active, setActive] = useState('chapter-1');
   const reduced = useReducedMotion();
-  const [active, setActive] = useState('chapter-1');
 
   useEffect(() => {
     const nodes = Object.keys(LIGHT_BY_CHAPTER)
