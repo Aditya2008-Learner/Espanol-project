@@ -25,12 +25,12 @@ export const ChapterTwo = () => {
 
       {/* Chapter Label */}
       <div className="relative z-10 px-6 pt-20 pb-8">
-        <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-burgundy/80 border border-gold/30 backdrop-blur-md chapter-label">
-          <span className="w-2.5 h-2.5 rounded-full bg-crimson animate-pulse"></span>
-          <span className="font-mono text-xs uppercase tracking-widest text-gold">Capítulo 02 — Raíces</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-burgundy/80 border border-gold/30 chapter-label">
+          <span className="w-2.5 h-2.5 rounded-full bg-crimson"></span>
+          <span className="font-mono text-xs uppercase tracking-wider text-gold">Capítulo 02 — Raíces</span>
         </div>
         <WordTitle text="THE ROOTS OF SPANISH FOOTBALL" className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-ivory" />
-        <p className="font-serif italic text-lg text-ivory/60 mt-4 max-w-2xl section-title" style={{ opacity: 0.8 }}>
+        <p className="font-serif text-lg text-ivory/80 mt-4 max-w-2xl section-title">
           From English miners in Huelva to world champions — an interactive journey through history
         </p>
       </div>

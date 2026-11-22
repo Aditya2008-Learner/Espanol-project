@@ -50,7 +50,7 @@ export function ChapterRail() {
           key={id}
           href={`#${id}`}
           onClick={(e) => handleRailClick(e, id)}
-          className={`font-mono text-[10px] tracking-widest transition-colors ${active === id ? 'text-gold' : 'text-ivory/35 hover:text-ivory/70'}`}
+          className="font-mono text-[10px] tracking-wider transition-colors"
         >
           {label}
         </a>

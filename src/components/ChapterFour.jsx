@@ -34,7 +34,7 @@ export const ChapterFour = () => {
   return (
     <section ref={sectionRef} className="relative flex min-h-screen items-center bg-maroon bg-noise py-24">
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="chapter-label mb-6 inline-flex border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-gold">
+        <div className="chapter-label mb-6 inline-flex border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-wide text-gold">
           Capítulo 04 — El Clásico
         </div>
         <WordTitle text="EL CLÁSICO" className="font-display text-5xl sm:text-7xl md:text-8xl leading-tight tracking-tight text-ivory" />

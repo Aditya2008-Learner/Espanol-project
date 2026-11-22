@@ -45,9 +45,9 @@ export const ChapterNine = () => {
   return (
     <section ref={sectionRef} className="min-h-screen relative bg-maroon flex items-center justify-center bg-noise py-20">
       <div className="w-full max-w-4xl mx-auto px-6">
-        <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-burgundy/80 border border-gold/30 backdrop-blur-md chapter-label">
-          <span className="w-2.5 h-2.5 rounded-full bg-crimson animate-pulse"></span>
-          <span className="font-mono text-xs uppercase tracking-widest text-gold">Capítulo 09 — El Cuestionario</span>
+         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-burgundy/80 border border-gold/30 chapter-label">
+          <span className="w-2.5 h-2.5 rounded-full bg-crimson"></span>
+          <span className="font-mono text-xs uppercase tracking-wide text-gold">Capítulo 09 — El Cuestionario</span>
         </div>
         <WordTitle text="TEST YOUR KNOWLEDGE" className="mt-6 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory" />
 

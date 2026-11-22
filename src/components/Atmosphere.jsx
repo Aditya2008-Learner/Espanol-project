@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import { useReducedMotion } from '../motion/useReducedMotion';
 
 /**
  * Persistent stadium atmosphere: two soft floodlights and a subtle vignette
@@ -26,6 +27,8 @@ const DEFAULT_LIGHT = { gold: 0.12, crimson: 0.10 };
 
 export function Atmosphere() {
   const [active, setActive] = useState('chapter-1');
+  const reduced = useReducedMotion();
+  const [active, setActive] = useState('chapter-1');
 
   useEffect(() => {
     const nodes = Object.keys(LIGHT_BY_CHAPTER)
@@ -50,25 +53,27 @@ export function Atmosphere() {
   useEffect(() => {
     const gold = document.getElementById('atmo-gold');
     const crimson = document.getElementById('atmo-crimson');
-    if (!gold || !crimson) return undefined;
+    if (!gold || !crimson || reduced) return undefined;
 
     const { gold: g, crimson: c } = LIGHT_BY_CHAPTER[active] || DEFAULT_LIGHT;
     gsap.to(gold, { opacity: g, duration: 1.6, ease: 'sine.inOut' });
     gsap.to(crimson, { opacity: c, duration: 1.6, ease: 'sine.inOut' });
     return undefined;
-  }, [active]);
+  }, [active, reduced]);
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-30 overflow-hidden">
+      {/* Subtle directional light washes - no radial blobs */}
       <div
         id="atmo-gold"
-        className="absolute -left-[15%] top-[-10%] h-[55%] w-[50%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(213,170,97,0.55),transparent_70%)] blur-3xl opacity-20"
+        className="absolute top-0 left-[-10%] h-full w-[30%] bg-gradient-to-r from-gold/15 to-transparent"
       />
       <div
         id="atmo-crimson"
-        className="absolute -right-[15%] top-[-10%] h-[55%] w-[50%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(181,31,53,0.45),transparent_70%)] blur-3xl opacity-16"
+        className="absolute top-0 right-[-10%] h-full w-[30%] bg-gradient-to-r from-transparent to-crimson/15"
       />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_55%,rgba(10,4,6,0.5)_100%)]" />
+      {/* Ambient vignette for depth, not color blob */}
+      <div className="absolute inset-0 bg-black/30" />
     </div>
   );
 }

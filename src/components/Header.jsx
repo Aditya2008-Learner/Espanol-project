@@ -38,22 +38,21 @@ export const Header = () => {
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-maroon/95 backdrop-blur-md py-3 shadow-lg border-b border-gold/20' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center space-x-2 group cursor-pointer" onClick={() => document.querySelector('main')?.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <div className="flex items-center gap-2 group cursor-pointer" onClick={() => document.querySelector('main')?.scrollTo({ top: 0, behavior: 'smooth' })}>
           <div className="w-10 h-10 bg-crimson rounded-full flex items-center justify-center font-display text-ivory text-xl font-bold group-hover:scale-110 transition-transform">FS</div>
-          <span className="font-display text-2xl tracking-tight leading-normal text-ivory hidden sm:block py-1">FÚTBOL <span className="text-gold">ESPAÑOL</span></span>
+          <span className="font-display text-2xl tracking-tight leading-normal text-ivory hidden sm:block">FÚTBOL <span className="text-gold">ESPAÑOL</span></span>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center gap-6">
           {chapters.map((chapter) => (
             <a 
               key={chapter.id} 
               href={`#${chapter.id}`} 
               onClick={(e) => handleNavClick(e, chapter.id)}
-              className="text-xs font-mono uppercase tracking-widest text-ivory/60 hover:text-gold transition-colors relative group"
+              className="text-xs font-mono uppercase tracking-widest text-ivory/60 hover:text-gold transition-colors"
             >
               {chapter.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all group-hover:w-full"></span>
             </a>
           ))}
         </nav>
@@ -66,7 +65,7 @@ export const Header = () => {
 
       {/* Mobile Menu */}
       <div className={`absolute top-full left-0 w-full bg-maroon border-b border-gold/20 transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-screen py-8' : 'max-h-0'}`}>
-        <div className="flex flex-col items-center space-y-6 px-6">
+        <div className="flex flex-col items-center gap-6 px-6">
           {chapters.map((chapter) => (
             <a 
               key={chapter.id} 

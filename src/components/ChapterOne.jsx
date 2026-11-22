@@ -33,18 +33,9 @@ export const ChapterOne = () => {
       timeline
         .fromTo('.stadium-plate', { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: 'power2.out' })
         .from('.intro-char', { yPercent: 120, opacity: 0, duration: 0.85, stagger: 0.035, ease: 'power4.out' }, 0.45)
-        .fromTo('.light-sweep', { xPercent: -130, opacity: 0 }, { xPercent: 130, opacity: 0.85, duration: 0.9, ease: 'power2.inOut' }, 1.05)
+        .fromTo('.light-sweep', { xPercent: -130, opacity: 0 }, { xPercent: 130, opacity: 0.7, duration: 0.9, ease: 'power2.inOut' }, 1.05)
         .from('.intro-sub', { y: 24, opacity: 0, filter: 'blur(8px)', duration: 0.8, ease: 'power3.out' }, 1.15)
         .from('.intro-cta', { y: 16, opacity: 0, duration: 0.6, ease: 'power3.out' }, 1.45);
-
-      gsap.to('.floodlight', {
-        opacity: 0.55,
-        duration: 2.4,
-        repeat: -1,
-        yoyo: true,
-        stagger: 0.4,
-        ease: 'sine.inOut',
-      });
     }, root);
 
     return () => ctx.revert();
@@ -91,9 +82,9 @@ export const ChapterOne = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-black/50" />
       </div>
 
-      <div className="floodlight pointer-events-none absolute -left-16 top-10 h-80 w-48 rotate-12 bg-gold/25 blur-3xl" />
-      <div className="floodlight pointer-events-none absolute -right-10 top-20 h-72 w-44 -rotate-12 bg-crimson/20 blur-3xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,rgba(213,170,97,0.12),transparent_70%)]" />
+      {/* Subtle directional light washes - no radial blobs */}
+      <div className="floodlight pointer-events-none absolute -left-16 top-10 h-80 w-48 rotate-12 bg-gold/15 blur-3xl" />
+      <div className="floodlight pointer-events-none absolute -right-10 top-20 h-72 w-44 -rotate-12 bg-crimson/15 blur-3xl" />
       <div className="pointer-events-none absolute inset-0 opacity-40">
         {Array.from({ length: 18 }).map((_, index) => (
           <span

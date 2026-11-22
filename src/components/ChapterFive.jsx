@@ -22,7 +22,7 @@ export const ChapterFive = () => {
   return (
     <section ref={sectionRef} className="relative flex min-h-screen items-center bg-maroon bg-noise py-24">
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="chapter-label mb-6 inline-flex border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-gold">
+        <div className="chapter-label mb-6 inline-flex border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-wide text-gold">
           Capítulo 05 — La Generación Dorada
         </div>
         <WordTitle text="THE GOLDEN GENERATION" className="font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory" />
@@ -48,7 +48,7 @@ export const ChapterFive = () => {
           {MOMENTS.map((moment) => (
             <article
               key={moment.year}
-              className={`reveal-block min-w-[78%] snap-center border p-8 md:min-w-[32%] ${moment.year === '2010' ? 'border-gold bg-burgundy/70 shadow-[0_0_40px_rgba(213,170,97,0.15)]' : 'border-crimson/20 bg-burgundy/40'}`}
+              className={`reveal-block min-w-[78%] snap-center border p-8 md:min-w-[32%] ${moment.year === '2010' ? 'border-gold bg-burgundy/70 shadow-md' : 'border-crimson/20 bg-burgundy/40'}`}
             >
               <p className="font-mono text-sm uppercase tracking-[0.3em] text-gold">{moment.year}</p>
               <h3 className="mt-4 font-display text-4xl text-ivory">{moment.title}</h3>

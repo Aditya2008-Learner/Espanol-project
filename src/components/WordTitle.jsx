@@ -10,7 +10,7 @@ export function WordTitle({ text, className = '' }) {
       {words.map((word, index) => (
         <span
           key={`${word}-${index}`}
-          className="inline-block overflow-hidden align-bottom py-3 -my-3 px-0.5 mr-[0.22em] last:mr-0"
+          className="inline-block overflow-hidden align-bottom py-3 -my-2 px-0.5 mr-[0.12em] last:mr-0"
         >
           <span className="word-reveal inline-block py-0.5">{word}</span>
         </span>

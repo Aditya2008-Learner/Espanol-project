@@ -50,23 +50,22 @@ export const ChapterTen = () => {
     <section ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden bg-black py-24">
       <img
         src="/assets/images/hero-stadium.webp"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-25"
+        alt="Spain national team at stadium"
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-25"
         onError={(event) => { event.currentTarget.style.display = 'none'; }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
-      <div className="finale-sweep pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="relative mx-auto max-w-5xl px-6 text-center">
-        <p className="finale-line font-mono text-xs uppercase tracking-[0.35em] text-gold">Capítulo 10 — El Final</p>
-        <h2 className="finale-line mt-10 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory py-1">EL FÚTBOL NO SE EXPLICA.</h2>
-        <h3 className="finale-line mt-3 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-gold py-1">SE SIENTE.</h3>
-        <p className="finale-line mx-auto mt-10 max-w-2xl font-serif text-xl text-ivory/75">
+        <p className="font-mono text-xs uppercase tracking-wider text-gold">Capítulo 10 — El Final</p>
+        <h2 className="mt-10 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory">EL FÚTBOL NO SE EXPLICA.</h2>
+        <h3 className="mt-3 font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-gold">SE SIENTE.</h3>
+        <p className="mx-auto mt-10 max-w-2xl font-serif text-xl text-ivory/75">
           Spanish football is a way of seeing space, time, and courage. The lesson ends where the feeling begins.
         </p>
         <button
           type="button"
           onClick={() => document.querySelector('main')?.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' })}
-          className="finale-line mt-12 border border-gold px-8 py-4 font-mono text-xs uppercase tracking-[0.25em] text-gold transition-colors hover:bg-gold hover:text-maroon"
+          className="mt-12 border border-gold px-8 py-4 font-mono text-xs uppercase tracking-wider text-gold transition-colors hover:bg-gold hover:text-maroon"
         >
           Restart experience
         </button>

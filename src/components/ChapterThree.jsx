@@ -39,7 +39,6 @@ export const ChapterThree = () => {
     gsap.set(root.querySelectorAll('.ch3-label, .ch3-title, .ch3-card, .ch3-nav'), {
       opacity: 1,
       y: 0,
-      clearProps: 'filter'
     });
 
     if (reduced) return undefined;
@@ -142,15 +141,15 @@ export const ChapterThree = () => {
 
       {/* Header Container */}
       <div className="relative z-10 px-6 sm:px-12 max-w-7xl mx-auto w-full pt-4">
-        <div className="ch3-label inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-burgundy/80 border border-gold/30 backdrop-blur-md">
-          <span className="w-2.5 h-2.5 rounded-full bg-crimson animate-pulse" />
-          <span className="font-mono text-xs uppercase tracking-widest text-gold">Capítulo 03 — Los Gigantes</span>
+        <div className="ch3-label inline-flex items-center gap-2 px-4 py-2 rounded-full bg-burgundy/80 border border-gold/30">
+          <span className="w-2.5 h-2.5 rounded-full bg-crimson" />
+          <span className="font-mono text-xs uppercase tracking-wider text-gold">Capítulo 03 — Los Gigantes</span>
         </div>
         <WordTitle
           text="THE GIANTS OF SPAIN"
           className="ch3-title mt-4 font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-ivory"
         />
-        <p className="mt-3 font-serif italic text-base sm:text-lg text-ivory/70 max-w-2xl">
+        <p className="mt-3 font-serif text-base sm:text-lg text-ivory/80 max-w-2xl">
           Six monumental clubs whose distinct identities, regional cultures, and European triumphs define the soul of Spanish football.
         </p>
       </div>

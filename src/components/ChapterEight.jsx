@@ -75,15 +75,15 @@ export const ChapterEight = () => {
     <section ref={sectionRef} className="relative min-h-screen bg-[#190A10] bg-noise py-24">
       <div className="mx-auto max-w-7xl px-6">
 
-        {/* Label */}
-        <div className="mod-label mb-4 inline-flex items-center gap-3 border border-[#D5AA61]/30 bg-[#350D19]/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-[#D5AA61]">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-[#B51F35]" />
+         {/* Label */}
+        <div className="mod-label mb-4 inline-flex items-center gap-2 border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-wide text-gold">
+          <span className="h-2 w-2 rounded-full bg-crimson" />
           Capítulo 08 — Modernidad
         </div>
-        <h2 className="mod-heading font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-[#F4EFE5] py-1">
-          MODERN SPANISH <span className="text-[#D5AA61]">FOOTBALL</span>
+        <h2 className="mod-heading font-display text-4xl sm:text-6xl md:text-8xl leading-tight tracking-tight text-ivory py-1">
+          MODERN SPANISH <span className="text-gold">FOOTBALL</span>
         </h2>
-        <p className="mt-4 max-w-2xl font-serif text-lg italic text-[#F4EFE5]/60">
+        <p className="mt-4 max-w-2xl font-serif text-lg text-ivory/60">
           {modernEraData.overview}
         </p>
 

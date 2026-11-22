@@ -93,7 +93,7 @@ export const ChapterSix = () => {
   return (
     <section ref={sectionRef} className="relative flex min-h-screen flex-col justify-center bg-maroon bg-noise py-24">
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="chapter-label mb-6 inline-flex items-center gap-3 border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-widest text-gold">
+        <div className="chapter-label mb-6 inline-flex items-center gap-3 border border-gold/30 bg-burgundy/80 px-4 py-2 font-mono text-xs uppercase tracking-wide text-gold">
           Capítulo 06 — La Táctica
         </div>
         <WordTitle text="THE ART OF TIKI-TAKA" className="font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-ivory" />
@@ -175,7 +175,7 @@ export const ChapterSix = () => {
               type="button"
               onClick={replay}
               disabled={playing}
-              className="mt-4 font-mono text-xs uppercase tracking-widest text-gold disabled:opacity-40"
+              className="mt-4 font-mono text-xs uppercase tracking-widest text-gold disabled:opacity-40 border border-gold/30 px-4 py-2 rounded-md transition-colors hover:bg-gold/10"
             >
               Replay sequence
             </button>
