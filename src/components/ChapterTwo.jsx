@@ -76,24 +76,66 @@ export const ChapterTwo = () => {
           <div className="relative grid lg:grid-cols-12 gap-8 items-start">
             {/* Image Panel */}
             <div className="lg:col-span-7 relative">
-              <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-burgundy">
-                <img 
-                  src={activeItem.image}
-                  alt={activeItem.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-all duration-700 opacity-90 hover:opacity-100 hover:scale-[1.02]"
-                  style={{ filter: 'grayscale(20%) contrast(1.1)' }}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.classList.add('bg-gradient-to-br', 'from-burgundy', 'to-crimson');
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="font-mono text-xs uppercase tracking-widest text-gold/80">{activeItem.category}</span>
-                  <div className="font-display text-3xl md:text-4xl text-ivory mt-2">{activeItem.year}</div>
+              {activeItem.year === '1929' ? (
+                /* Editorial newspaper plate for the 1929 La Liga inaugural season */
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[#EAE2D0] text-[#190A10] p-4 sm:p-6 border border-gold/40 shadow-2xl flex flex-col justify-between">
+                  {/* Masthead */}
+                  <div className="border-b-2 border-[#190A10] pb-2 flex items-center justify-between font-mono text-[9px] sm:text-[11px] uppercase tracking-widest">
+                    <span>GACETA DEL DEPORTE</span>
+                    <span className="font-bold">10 DE FEBRERO DE 1929</span>
+                    <span>EDICIÓN NACIONAL</span>
+                  </div>
+
+                  {/* Headline */}
+                  <div className="my-2">
+                    <p className="font-display text-2xl sm:text-4xl uppercase tracking-tight text-[#190A10] leading-tight">
+                      NACE EL CAMPEONATO NACIONAL DE LIGA
+                    </p>
+                    <p className="font-serif italic text-xs sm:text-sm text-[#190A10]/75 mt-1">
+                      Diez clubes pioneros disputan la primera jornada en los campos de España.
+                    </p>
+                  </div>
+
+                  {/* Archival image cutout */}
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-burgundy rounded-sm border border-[#190A10]/20">
+                    <img
+                      src={activeItem.image}
+                      alt={activeItem.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover grayscale contrast-125"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-[#EAE2D0]/15 mix-blend-multiply pointer-events-none" />
+                  </div>
+
+                  {/* Footer caption */}
+                  <div className="pt-2 border-t border-[#190A10]/30 flex items-center justify-between font-mono text-[9px] sm:text-[10px] uppercase text-[#190A10]/70">
+                    <span>MADRID · BARCELONA · BILBAO · GETXO</span>
+                    <span className="font-bold text-crimson">AÑO I · NÚMERO 1</span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-burgundy">
+                  <img 
+                    src={activeItem.image}
+                    alt={activeItem.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-all duration-700 opacity-90 hover:opacity-100 hover:scale-[1.02]"
+                    style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.classList.add('bg-gradient-to-br', 'from-burgundy', 'to-crimson');
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <span className="font-mono text-xs uppercase tracking-widest text-gold/80">{activeItem.category}</span>
+                    <div className="font-display text-3xl md:text-4xl text-ivory mt-2">{activeItem.year}</div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Content Panel */}

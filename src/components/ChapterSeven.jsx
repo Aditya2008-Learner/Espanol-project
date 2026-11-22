@@ -9,7 +9,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Individual config: Torres, Raúl, Busquets use object-contain so the full image fits without cropping
 const LEGEND_CONFIG = {
   "Andrés Iniesta": { position: "center 22%", fit: "object-cover" },
   "Xavi Hernández": { position: "center 25%", fit: "object-cover" },
@@ -17,18 +16,39 @@ const LEGEND_CONFIG = {
   "Sergio Ramos": { position: "center 20%", fit: "object-cover" },
   "Carles Puyol": { position: "center 22%", fit: "object-cover" },
   "David Villa": { position: "center 25%", fit: "object-cover" },
-  "Fernando Torres": { position: "center center", fit: "object-contain" },  // Fits complete image without cropping
-  "Raúl González": { position: "center center", fit: "object-contain" },    // Fits complete image without cropping
-  "Sergio Busquets": { position: "center center", fit: "object-contain" }, // Fits complete image without cropping
+  "Fernando Torres": { position: "center center", fit: "object-contain" },
+  "Raúl González": { position: "center center", fit: "object-contain" },
+  "Sergio Busquets": { position: "center center", fit: "object-contain" },
   "Lamine Yamal": { position: "center 20%", fit: "object-cover" }
 };
 
 export const ChapterSeven = () => {
   const sectionRef = useRef(null);
+  const portraitRef = useRef(null);
+  const nameRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const reduced = useReducedMotion();
   const active = legendsData[activeIdx];
   useChapterReveal(sectionRef);
+
+  // Cinematic portrait reveal / crossfade on legend change
+  useLayoutEffect(() => {
+    if (reduced) return;
+    const img = portraitRef.current;
+    const nameEl = nameRef.current;
+    if (!img || !nameEl) return;
+
+    gsap.fromTo(
+      img,
+      { scale: 1.06, opacity: 0.4 },
+      { scale: 1, opacity: 0.9, duration: 0.65, ease: 'power2.out' }
+    );
+    gsap.fromTo(
+      nameEl,
+      { y: 14, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }
+    );
+  }, [activeIdx, reduced]);
 
   // Keyboard navigation for legends
   useEffect(() => {
@@ -101,17 +121,18 @@ export const ChapterSeven = () => {
               {/* Image with object-contain for Torres, Raúl, Busquets */}
               <div className="relative aspect-[16/8] w-full overflow-hidden bg-[#12050b] flex items-center justify-center">
                 <img
+                  ref={portraitRef}
                   src={active.image}
                   alt={active.name}
                   loading="lazy"
-                  className={`h-full w-full ${config.fit} opacity-90 transition-all duration-700 hover:scale-105`}
+                  className={`h-full w-full ${config.fit} opacity-90 transition-transform duration-700 hover:scale-105`}
                   style={{ objectPosition: config.position }}
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 p-6 sm:p-8">
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D5AA61]">{active.role}</p>
-                  <h3 className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5] py-1">{active.name}</h3>
+                  <h3 ref={nameRef} className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5] py-1">{active.name}</h3>
                   <p className="font-mono text-sm text-[#F4EFE5]/70">{active.club}</p>
                 </div>
               </div>

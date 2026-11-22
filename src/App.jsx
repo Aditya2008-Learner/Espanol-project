@@ -12,12 +12,14 @@ import { ChapterNine } from './components/ChapterNine.jsx';
 import { ChapterTen } from './components/ChapterTen.jsx';
 import { ProgressBar } from './components/ProgressBar.jsx';
 import { ChapterRail } from './components/ChapterRail.jsx';
+import { Atmosphere } from './components/Atmosphere.jsx';
 
 function App() {
   return (
     <div className="font-sans antialiased">
       <Header />
       <ProgressBar />
+      <Atmosphere />
       <ChapterRail />
       <main className="snap-y snap-mandatory overflow-y-scroll h-screen">
         <section id="chapter-1" className="snap-start min-h-screen">

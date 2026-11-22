@@ -1,9 +1,12 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { tacticalPositions } from '../data/footballData';
 import { WordTitle } from './WordTitle';
 import { useChapterReveal } from '../motion/useChapterReveal';
 import { useReducedMotion } from '../motion/useReducedMotion';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ROUTES = [
   ['gk', 'cb'],
@@ -29,6 +32,38 @@ export const ChapterSix = () => {
       .map(([from, to]) => ({ from: byId[from], to: byId[to] }))
       .filter((link) => link.from && link.to);
   }, [selectedId]);
+
+  // Subtle chalk-like drawing animation on passing routes on entry
+  useLayoutEffect(() => {
+    const root = sectionRef.current;
+    const scrollerEl = document.querySelector('main');
+    if (!root || !scrollerEl || reduced) return undefined;
+
+    const ctx = gsap.context(() => {
+      const routes = root.querySelectorAll('.tactical-route');
+      if (routes.length > 0) {
+        gsap.fromTo(
+          routes,
+          { strokeDashoffset: 40, opacity: 0 },
+          {
+            strokeDashoffset: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: root,
+              scroller: scrollerEl,
+              start: 'top 75%',
+              once: true,
+            },
+          }
+        );
+      }
+    }, root);
+
+    return () => ctx.revert();
+  }, [reduced, links]);
 
   const replay = () => {
     const ball = ballRef.current;
@@ -66,21 +101,41 @@ export const ChapterSix = () => {
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-12">
           <div className="reveal-block relative rounded-sm border border-emerald-700/40 bg-[#163226] p-6 lg:col-span-7">
             <svg viewBox="0 0 100 100" className="mx-auto aspect-[4/5] w-full max-w-xl overflow-visible">
+              <defs>
+                <marker
+                  id="tactical-arrow"
+                  viewBox="0 0 10 10"
+                  refX="6"
+                  refY="5"
+                  markerWidth="4"
+                  markerHeight="4"
+                  orient="auto-start-reverse"
+                >
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D5AA61" />
+                </marker>
+              </defs>
+
+              {/* Pitch markings */}
               <rect x="6" y="6" width="88" height="88" fill="none" stroke="#F4EFE5" strokeOpacity="0.35" />
               <line x1="6" y1="50" x2="94" y2="50" stroke="#F4EFE5" strokeOpacity="0.35" />
               <circle cx="50" cy="50" r="11" fill="none" stroke="#F4EFE5" strokeOpacity="0.35" />
+
+              {/* Animated tactical passing lanes with arrowheads */}
               {links.map((link) => (
                 <line
                   key={`${link.from.id}-${link.to.id}`}
+                  className="tactical-route"
                   x1={link.from.coordinates.x}
                   y1={link.from.coordinates.y}
                   x2={link.to.coordinates.x}
                   y2={link.to.coordinates.y}
                   stroke="#D5AA61"
-                  strokeWidth="0.7"
-                  strokeDasharray="2 1.4"
+                  strokeWidth="0.8"
+                  strokeDasharray="3 1.5"
+                  markerEnd="url(#tactical-arrow)"
                 />
               ))}
+
               {tacticalPositions.map((position) => {
                 const active = position.id === selectedId;
                 return (

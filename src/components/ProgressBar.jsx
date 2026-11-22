@@ -11,17 +11,7 @@ export const ProgressBar = () => {
     const el = progressRef.current;
     const scrollerEl = document.querySelector('main');
 
-    console.log('[ProgressBar] Init:', {
-      targetEl: el,
-      targetConnected: el?.isConnected,
-      scrollerEl,
-      scrollerConnected: scrollerEl?.isConnected,
-    });
-
-    if (!el || !scrollerEl) {
-      console.warn('[ProgressBar] Missing target or scroller element.');
-      return undefined;
-    }
+    if (!el || !scrollerEl) return undefined;
 
     const ctx = gsap.context(() => {
       gsap.to(el, {
@@ -37,10 +27,7 @@ export const ProgressBar = () => {
       });
     }, el);
 
-    return () => {
-      console.log('[ProgressBar] Cleanup');
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (

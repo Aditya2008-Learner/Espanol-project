@@ -13,23 +13,10 @@ export const ChapterTen = () => {
     const root = sectionRef.current;
     const scrollerEl = document.querySelector('main');
 
-    console.log('[ChapterTen] Init:', {
-      root,
-      rootConnected: root?.isConnected,
-      scrollerEl,
-      scrollerConnected: scrollerEl?.isConnected,
-      reducedMotion: reduced,
-    });
-
     if (!root || reduced || !scrollerEl) return undefined;
 
     const lines = root.querySelectorAll('.finale-line');
     const sweeps = root.querySelectorAll('.finale-sweep');
-
-    console.log('[ChapterTen] Targets found:', {
-      linesCount: lines.length,
-      sweepsCount: sweeps.length,
-    });
 
     const ctx = gsap.context(() => {
       if (lines.length > 0) {
@@ -56,10 +43,7 @@ export const ChapterTen = () => {
       }
     }, root);
 
-    return () => {
-      console.log('[ChapterTen] Cleanup');
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, [reduced]);
 
   return (
