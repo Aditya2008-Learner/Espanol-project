@@ -11,6 +11,7 @@ const CHAPTERS = [
   ['chapter-8', '08'],
   ['chapter-9', '09'],
   ['chapter-10', '10'],
+  ['chapter-11', '11'],
 ];
 
 export function ChapterRail() {

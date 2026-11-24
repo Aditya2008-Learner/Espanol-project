@@ -10,6 +10,7 @@ import { ChapterSeven } from './components/ChapterSeven.jsx';
 import { ChapterEight } from './components/ChapterEight.jsx';
 import { ChapterNine } from './components/ChapterNine.jsx';
 import { ChapterTen } from './components/ChapterTen.jsx';
+import { ChapterEleven } from './components/ChapterEleven.jsx';
 import { ProgressBar } from './components/ProgressBar.jsx';
 import { ChapterRail } from './components/ChapterRail.jsx';
 import { Atmosphere } from './components/Atmosphere.jsx';
@@ -51,6 +52,9 @@ function App() {
         </section>
         <section id="chapter-10" className="snap-start min-h-screen">
           <ChapterTen />
+        </section>
+        <section id="chapter-11" className="snap-start min-h-screen">
+          <ChapterEleven />
         </section>
       </main>
     </div>

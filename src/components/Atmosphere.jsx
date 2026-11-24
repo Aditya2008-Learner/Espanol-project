@@ -21,6 +21,7 @@ const LIGHT_BY_CHAPTER = {
   'chapter-8': { gold: 0.14, crimson: 0.12 },
   'chapter-9': { gold: 0.08, crimson: 0.06 },
   'chapter-10': { gold: 0.24, crimson: 0.20 },
+  'chapter-11': { gold: 0.12, crimson: 0.10 },
 };
 
 const DEFAULT_LIGHT = { gold: 0.12, crimson: 0.10 };
