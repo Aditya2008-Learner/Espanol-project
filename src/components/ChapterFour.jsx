@@ -1,7 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useLayoutEffect } from 'react';
 import { WordTitle } from './WordTitle';
 import { StatValue } from './StatValue';
 import { useChapterReveal } from '../motion/useChapterReveal';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SIDES = {
   barcelona: {
@@ -31,6 +35,38 @@ export const ChapterFour = () => {
   const [focus, setFocus] = useState('both');
   useChapterReveal(sectionRef);
 
+  useLayoutEffect(() => {
+    const root = sectionRef.current;
+    const scrollerEl = document.querySelector('main');
+    if (!root || !scrollerEl) return undefined;
+
+    const ctx = gsap.context(() => {
+      // Split wipe animation for the two articles
+      gsap.fromTo(
+        root.querySelectorAll('.clasico-card-barca'),
+        { clipPath: 'inset(0 100% 0 0)' },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 1.1,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 70%', once: true },
+        }
+      );
+      gsap.fromTo(
+        root.querySelectorAll('.clasico-card-madrid'),
+        { clipPath: 'inset(0 0 0 100%)' },
+        {
+          clipPath: 'inset(0 0 0 0)',
+          duration: 1.1,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: root, scroller: scrollerEl, start: 'top 70%', once: true },
+        }
+      );
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section ref={sectionRef} className="relative flex min-h-screen items-center bg-maroon bg-noise py-24">
       <div className="mx-auto w-full max-w-7xl px-6">
@@ -58,7 +94,9 @@ export const ChapterFour = () => {
               key={key}
               onMouseEnter={() => setFocus(key)}
               onMouseLeave={() => setFocus('both')}
-              className={`clip-reveal relative aspect-[4/5] overflow-hidden border border-ivory/10 transition-all duration-500 hover:scale-[1.01] hover:border-gold/50 ${focus !== 'both' && focus !== key ? 'opacity-35 grayscale-[40%]' : 'opacity-100 shadow-2xl'}`}
+              className={`relative aspect-[4/5] overflow-hidden border border-ivory/10 transition-all duration-500 hover:scale-[1.01] hover:border-gold/50 ${
+                key === 'barcelona' ? 'clasico-card-barca' : 'clasico-card-madrid'
+              } ${focus !== 'both' && focus !== key ? 'opacity-35 grayscale-[40%]' : 'opacity-100 shadow-2xl'}`}
             >
               <img
                 src={side.image}

@@ -19,6 +19,7 @@ const ROUTES = [
 export const ChapterSix = () => {
   const sectionRef = useRef(null);
   const ballRef = useRef(null);
+  const trailRef = useRef(null);
   const reduced = useReducedMotion();
   const [selectedId, setSelectedId] = useState('dm');
   const [playing, setPlaying] = useState(false);
@@ -67,6 +68,7 @@ export const ChapterSix = () => {
 
   const replay = () => {
     const ball = ballRef.current;
+    const trail = trailRef.current;
     if (!ball || reduced) return;
     const sequence = ROUTES
       .map(([from, to]) => {
@@ -80,11 +82,29 @@ export const ChapterSix = () => {
     const timeline = gsap.timeline({ onComplete: () => setPlaying(false) });
     sequence.forEach(({ start, end }, index) => {
       timeline.set(ball, { attr: { cx: start.coordinates.x, cy: start.coordinates.y } }, index === 0 ? 0 : '>');
+      if (trail) {
+        timeline.set(trail, { attr: { cx: start.coordinates.x, cy: start.coordinates.y }, opacity: 0.6 }, '<');
+      }
+      
+      // Node pulse on arrival
+      const nodeEl = document.getElementById(`tactic-node-${end.id}`);
+      if (nodeEl) {
+        timeline.to(nodeEl, { scale: 1.3, duration: 0.15, yoyo: true, repeat: 1, transformOrigin: 'center' }, '<+=0.3');
+      }
+
       timeline.to(ball, {
         attr: { cx: end.coordinates.x, cy: end.coordinates.y },
         duration: 0.55,
         ease: 'power2.inOut',
       });
+      if (trail) {
+        timeline.to(trail, {
+          attr: { cx: end.coordinates.x, cy: end.coordinates.y },
+          opacity: 0,
+          duration: 0.4,
+          ease: 'power2.out',
+        }, '<');
+      }
     });
   };
 
@@ -141,6 +161,7 @@ export const ChapterSix = () => {
                 return (
                   <g 
                     key={position.id} 
+                    id={`tactic-node-${position.id}`}
                     className="cursor-pointer transition-transform duration-300 hover:scale-125" 
                     onClick={() => {
                       setSelectedId(position.id);
@@ -169,6 +190,7 @@ export const ChapterSix = () => {
                   </g>
                 );
               })}
+              <circle ref={trailRef} cx="50" cy="50" r="1.1" fill="#D5AA61" opacity="0" />
               <circle ref={ballRef} cx="50" cy="50" r="1.6" fill="#F4EFE5" />
             </svg>
             <button

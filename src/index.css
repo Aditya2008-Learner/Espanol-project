@@ -11,6 +11,20 @@
   }
 }
 
+/* Scoreboard name wipe effect */
+.name-wipe-container {
+  position: relative;
+  overflow: hidden;
+}
+.name-wipe-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #190A10;
+  z-index: 10;
+  transform: translateX(0%);
+  will-change: transform;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

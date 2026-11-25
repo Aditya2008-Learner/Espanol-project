@@ -31,7 +31,7 @@ export const ChapterSeven = () => {
   const active = legendsData[activeIdx];
   useChapterReveal(sectionRef);
 
-  // Cinematic portrait reveal / crossfade on legend change
+  // Cinematic portrait reveal / crossfade on legend change + name scoreboard wipe
   useLayoutEffect(() => {
     if (reduced) return;
     const img = portraitRef.current;
@@ -40,14 +40,19 @@ export const ChapterSeven = () => {
 
     gsap.fromTo(
       img,
-      { scale: 1.06, opacity: 0.4 },
-      { scale: 1, opacity: 0.9, duration: 0.65, ease: 'power2.out' }
+      { scale: 1.08, opacity: 0.4 },
+      { scale: 1, opacity: 0.9, duration: 0.8, ease: 'power2.out' }
     );
-    gsap.fromTo(
-      nameEl,
-      { y: 14, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }
-    );
+
+    // Scoreboard name wipe overlay
+    const overlay = nameEl.parentElement?.querySelector('.name-wipe-overlay');
+    if (overlay) {
+      gsap.fromTo(
+        overlay,
+        { transform: 'translateX(0%)' },
+        { transform: 'translateX(101%)', duration: 0.55, ease: 'power3.inOut' }
+      );
+    }
   }, [activeIdx, reduced]);
 
   // Keyboard navigation for legends
@@ -132,8 +137,11 @@ export const ChapterSeven = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#190A10] via-[#190A10]/40 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 p-6 sm:p-8">
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#D5AA61]">{active.role}</p>
-                  <h3 ref={nameRef} className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5] py-1">{active.name}</h3>
-                  <p className="font-mono text-sm text-[#F4EFE5]/70">{active.club}</p>
+                  <div className="name-wipe-container relative inline-block py-1">
+                    <div className="name-wipe-overlay" />
+                    <h3 ref={nameRef} className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#F4EFE5]">{active.name}</h3>
+                  </div>
+                  <p className="font-mono text-sm text-[#F4EFE5]/70 mt-1">{active.club}</p>
                 </div>
               </div>
 

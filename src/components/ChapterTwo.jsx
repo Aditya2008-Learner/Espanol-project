@@ -1,13 +1,45 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { timelineData } from '../data/footballData';
 import { WordTitle } from './WordTitle';
 import { useChapterReveal } from '../motion/useChapterReveal';
+import { gsap } from 'gsap';
 
 export const ChapterTwo = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [displayYear, setDisplayYear] = useState(timelineData[0].year);
   const sectionRef = useRef(null);
   useChapterReveal(sectionRef);
+
+  // Scoreboard counter effect when activeIndex changes
+  useEffect(() => {
+    const targetYear = timelineData[activeIndex].year;
+    if (targetYear.includes('-')) {
+      setDisplayYear(targetYear);
+      return;
+    }
+    const numTarget = parseInt(targetYear, 10);
+    if (isNaN(numTarget)) {
+      setDisplayYear(targetYear);
+      return;
+    }
+    let startNum = numTarget - 45;
+    const startTime = performance.now();
+    const duration = 280;
+
+    const updateCounter = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.round(startNum + (numTarget - startNum) * progress);
+      setDisplayYear(String(current));
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        setDisplayYear(targetYear);
+      }
+    };
+    requestAnimationFrame(updateCounter);
+  }, [activeIndex]);
 
   const handleScroll = (direction) => {
     const newIndex = direction === 'next' 
@@ -131,8 +163,8 @@ export const ChapterTwo = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <span className="font-mono text-xs uppercase tracking-widest text-gold/80">{activeItem.category}</span>
-                    <div className="font-display text-3xl md:text-4xl text-ivory mt-2">{activeItem.year}</div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-gold/80">{activeItem.category}</span>
+                    <div className="font-display text-3xl md:text-4xl text-ivory mt-2">{displayYear}</div>
                   </div>
                 </div>
               )}

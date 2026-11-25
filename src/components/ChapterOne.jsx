@@ -33,9 +33,23 @@ export const ChapterOne = () => {
       timeline
         .fromTo('.stadium-plate', { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: 'power2.out' })
         .from('.intro-char', { yPercent: 120, opacity: 0, duration: 0.85, stagger: 0.035, ease: 'power4.out' }, 0.45)
+        .to('.intro-char', { filter: 'brightness(1.3)', duration: 0.2, stagger: 0.035, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 0.45)
         .fromTo('.light-sweep', { xPercent: -130, opacity: 0 }, { xPercent: 130, opacity: 0.7, duration: 0.9, ease: 'power2.inOut' }, 1.05)
         .from('.intro-sub', { y: 24, opacity: 0, filter: 'blur(8px)', duration: 0.8, ease: 'power3.out' }, 1.15)
         .from('.intro-cta', { y: 16, opacity: 0, duration: 0.6, ease: 'power3.out' }, 1.45);
+
+      // Ken Burns slow scale on scroll scrub
+      gsap.to('.stadium-plate img', {
+        scale: 1.06,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: root,
+          scroller: document.querySelector('main'),
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
     }, root);
 
     return () => ctx.revert();
