@@ -45,13 +45,17 @@ export function ChapterRail() {
   };
 
   return (
-    <nav aria-label="Chapter progress" className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-2 xl:flex">
+    <nav aria-label="Chapter progress" className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 xl:flex">
       {CHAPTERS.map(([id, label]) => (
         <a
           key={id}
           href={`#${id}`}
           onClick={(e) => handleRailClick(e, id)}
-          className="font-mono text-[10px] tracking-wider transition-colors"
+          className={`font-mono text-[11px] tracking-widest transition-all duration-300 ${
+            active === id 
+              ? 'text-gold scale-115 font-bold translate-x-[-2px]' 
+              : 'text-ivory/35 hover:text-ivory/80 scale-100'
+          }`}
         >
           {label}
         </a>

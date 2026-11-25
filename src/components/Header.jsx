@@ -50,9 +50,10 @@ export const Header = () => {
               key={chapter.id} 
               href={`#${chapter.id}`} 
               onClick={(e) => handleNavClick(e, chapter.id)}
-              className="text-xs font-mono uppercase tracking-widest text-ivory/60 hover:text-gold transition-colors"
+              className="text-xs font-mono uppercase tracking-widest text-ivory/60 hover:text-gold transition-colors relative py-1 group"
             >
               {chapter.label}
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>

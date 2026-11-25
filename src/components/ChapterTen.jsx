@@ -65,7 +65,7 @@ export const ChapterTen = () => {
         <button
           type="button"
           onClick={() => document.querySelector('main')?.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' })}
-          className="mt-12 border border-gold px-8 py-4 font-mono text-xs uppercase tracking-wider text-gold transition-colors hover:bg-gold hover:text-maroon"
+          className="mt-12 border border-gold px-8 py-4 font-mono text-xs uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-maroon interactive-press"
         >
           Restart experience
         </button>

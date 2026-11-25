@@ -77,7 +77,7 @@ export const ChapterNine = () => {
                   <button
                     key={i}
                     onClick={() => handleSelect(i)}
-                    className={`w-full text-left p-4 rounded-sm border transition-all duration-200 flex items-center justify-between hover:-translate-y-0.5 active:scale-[0.99] ${btnStyle}`}
+                    className={`w-full text-left p-4 rounded-sm border transition-all duration-300 flex items-center justify-between hover:-translate-y-0.5 active:scale-[0.99] interactive-press ${btnStyle}`}
                   >
                     <span>{opt}</span>
                     {isAnswered && i === question.correct && <CheckCircle2 className="w-5 h-5 text-emerald-400" />}

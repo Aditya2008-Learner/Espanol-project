@@ -242,43 +242,43 @@ export const ChapterThree = () => {
           </div>
         </div>
 
-        {/* Floating Navigation Controls */}
-        <div className="ch3-nav max-w-5xl mx-auto px-6 flex items-center justify-between mt-2">
-          <button
-            type="button"
-            aria-label="Previous club"
-            onClick={() => setActiveClub((prev) => (prev === 0 ? clubsData.length - 1 : prev - 1))}
-            className="w-12 h-12 rounded-full bg-maroon/95 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
+          {/* Floating Navigation Controls */}
+          <div className="ch3-nav max-w-5xl mx-auto px-6 flex items-center justify-between mt-2">
+            <button
+              type="button"
+              aria-label="Previous club"
+              onClick={() => setActiveClub((prev) => (prev === 0 ? clubsData.length - 1 : prev - 1))}
+              className="w-12 h-12 rounded-full bg-maroon/95 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95 interactive-press"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
 
-          {/* Active Club Indicator Pills */}
-          <div className="flex items-center space-x-2.5">
-            {clubsData.map((club, index) => (
-              <button
-                key={club.id}
-                type="button"
-                aria-label={`Select ${club.name}`}
-                onClick={() => setActiveClub(index)}
-                className={`transition-all duration-500 rounded-full ${
-                  index === activeClub
-                    ? 'w-10 h-3 bg-gradient-to-r from-crimson to-gold shadow-[0_0_16px_rgba(213,170,97,0.8)] scale-110'
-                    : 'w-3 h-3 bg-burgundy/70 hover:bg-gold/60'
-                }`}
-              />
-            ))}
+            {/* Active Club Indicator Pills */}
+            <div className="flex items-center space-x-2.5">
+              {clubsData.map((club, index) => (
+                <button
+                  key={club.id}
+                  type="button"
+                  aria-label={`Select ${club.name}`}
+                  onClick={() => setActiveClub(index)}
+                  className={`transition-all duration-500 rounded-full interactive-press ${
+                    index === activeClub
+                      ? 'w-10 h-3 bg-gradient-to-r from-crimson to-gold shadow-[0_0_16px_rgba(213,170,97,0.8)] scale-110'
+                      : 'w-3 h-3 bg-burgundy/70 hover:bg-gold/60'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              aria-label="Next club"
+              onClick={() => setActiveClub((prev) => (prev === clubsData.length - 1 ? 0 : prev + 1))}
+              className="w-12 h-12 rounded-full bg-maroon/95 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95 interactive-press"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
-
-          <button
-            type="button"
-            aria-label="Next club"
-            onClick={() => setActiveClub((prev) => (prev === clubsData.length - 1 ? 0 : prev + 1))}
-            className="w-12 h-12 rounded-full bg-maroon/95 border border-gold/40 flex items-center justify-center text-gold hover:bg-crimson hover:text-ivory transition-all duration-300 shadow-xl active:scale-95"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
       </div>
 
       {/* Footer Info Strip */}

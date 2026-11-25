@@ -137,7 +137,7 @@ export const ChapterOne = () => {
         <a
           ref={buttonRef}
           href="#chapter-2"
-          className="intro-cta mt-10 inline-flex items-center gap-3 bg-crimson px-8 py-4 font-mono text-xs uppercase tracking-[0.25em] text-ivory transition-colors hover:bg-gold hover:text-maroon"
+          className="intro-cta interactive-press mt-10 inline-flex items-center gap-3 bg-crimson px-8 py-4 font-mono text-xs uppercase tracking-[0.25em] text-ivory transition-colors hover:bg-gold hover:text-maroon"
         >
           Enter the experience
           <ArrowRight className="h-4 w-4" />

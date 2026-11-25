@@ -81,7 +81,7 @@ export const ChapterFour = () => {
               key={key}
               type="button"
               onClick={() => setFocus(key)}
-              className={`border px-4 py-2 transition-colors ${focus === key ? 'border-gold bg-gold text-maroon' : 'border-ivory/20 text-ivory/70'}`}
+              className={`border px-4 py-2 transition-all duration-300 interactive-press ${focus === key ? 'border-gold bg-gold text-maroon font-bold' : 'border-ivory/20 text-ivory/70 hover:border-gold/50'}`}
             >
               {key}
             </button>
